@@ -5,15 +5,20 @@ import TestChart from "./TestChart";
 import TrendingCoins from "../Components/TrendingCoins";
 import NewsRow from "../Components/NewsRow";
 
-type InewsData = [
+export type InewsData = [
   {
-    author: string;
+    author?: string;
+    title: string;
+    urlToImage?: string;
+    publishedAt?: string;
+    description?: string;
+    content?: string;
+    source?: {
+      id: string;
+      name: string;
+    };
   }
 ];
-
-type Props = {
-  newsArticles: InewsData | undefined;
-};
 
 interface IassetData {
   id: string;
@@ -42,9 +47,16 @@ const TestCoinInfo = () => {
   const [asset, setAsset] = React.useState<Iasset>();
 
   const [currentCoinValue, setCurrentCoinValue] = React.useState(0);
-  const [newsArticles, setNewsArticles] = React.useState<Props | undefined>(
-    undefined
-  );
+  const [newsArticles, setNewsArticles] = React.useState<InewsData>([
+    {
+      author: "",
+      title: "",
+      urlToImage: "",
+      publishedAt: "",
+      description: "",
+      content: "",
+    },
+  ]);
   const [convertToUSDValue, setConvertToUSDValue] = React.useState<
     number | undefined
   >();
@@ -82,8 +94,6 @@ const TestCoinInfo = () => {
     getChartData(id ? id : "bitcoin");
   }, []);
 
-  console.log(newsArticles);
-
   const getNews = async (coinName: string) => {
     const response = await fetch(
       `https://newsapi.org/v2/everything?q=${coinName}&sortBy=popularity&pageSize=3&apiKey=6cce3939c3ec495d9e1df9dd6df36c67`
@@ -97,8 +107,6 @@ const TestCoinInfo = () => {
   React.useEffect(() => {
     getNews(id ? id : "bitcoin");
   }, []);
-
-  console.log();
 
   const convertToUsd = (cryptoPrice: number) => {
     if (cryptoPrice) {
@@ -404,7 +412,7 @@ const TestCoinInfo = () => {
         </div>
 
         <div className="coinInfo__NewsContainer">
-          <NewsRow />
+          {newsArticles.length > 1 && <NewsRow NewsPosts={newsArticles} />}
         </div>
       </div>
     </div>

@@ -164,7 +164,7 @@
 .coinInfo__mainBtns_container {
   display: flex;
   border-bottom: 1px solid whitesmoke;
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 20px;
 }
 
@@ -186,6 +186,7 @@
 .coinInfo__chart_container {
   display: flex;
   justify-content: space-between;
+  margin-top: 40px;
 }
 
 .coinInfo__chart_containerL {
@@ -312,4 +313,8 @@
 
 .coinInfo__chart_containerR__PriceStatistics_rowsB {
   font-weight: 600;
+}
+
+.coinInfo__NewsContainer {
+  margin-top: 100px;
 }

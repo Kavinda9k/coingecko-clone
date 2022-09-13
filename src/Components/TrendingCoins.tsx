@@ -15,9 +15,9 @@ const TrendingCoins = () => {
             <img src={coin.item.small} />
             <div>
               <p>{coin.item.name}</p>
-              <h5>${coin.item.price_btc}</h5>
+              <h5>${coin.item.price_btc * 21000}</h5>
             </div>
-            <p>15.5%</p>
+            <p></p>
           </div>
 
           <img src={`https://www.coingecko.com/coins/${id}/sparkline`} />
