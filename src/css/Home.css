@@ -1,0 +1,54 @@
+.main__Container {
+  width: 68%;
+  margin: 0 auto;
+}
+
+.main__nav {
+  display: flex;
+  margin-top: 30px;
+  border-bottom: 1px solid whitesmoke;
+  padding: 0 15px;
+}
+
+.main__nav > p {
+  margin: 0;
+  padding: 10px 10px;
+  margin-right: 15px;
+  border-bottom: 5px solid transparent;
+  cursor: pointer;
+  color: grey;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.main__nav > p:hover {
+  border-bottom: 2px solid grey;
+  color: black;
+}
+
+.main__heading {
+  padding: 10px 0;
+  margin-bottom: 30px;
+}
+
+.main__heading > div {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.main__heading > div > h1 {
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+.main__heading > div > p {
+  font-size: 14px;
+  color: grey;
+}
+
+.main__heading > p {
+  margin: -5px;
+  padding: 0 25px;
+  font-size: 12px;
+}

@@ -1,0 +1,45 @@
+.trending__main {
+  margin-top: 20px;
+}
+
+.trending__card {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 20%;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: white;
+  margin-right: 10px;
+}
+
+.trending__card > div {
+  display: flex;
+  align-items: center;
+}
+
+.trending__card > div > p,
+.trending__card > div > div > h5 {
+  margin: 0;
+  font-size: 12px;
+}
+
+.trending__card > div > img {
+  margin-right: 10px;
+  width: 11%;
+}
+
+.trending__card > div > div {
+  margin-right: auto;
+}
+
+.trending__card > img {
+  margin-top: 10px;
+  width: 80%;
+}
+
+.trendingCard__container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  margin-top: 20px;
+}

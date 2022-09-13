@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+}
+.cryptoMenu__container,
+.cryptoMenu__container__exchanges,
+.cryptoMenu__container__nft,
+.cryptoMenu__container_learn {
+  background-color: white;
+  min-width: 150px;
+  position: fixed;
+  top: 100px;
+  left: 495px;
+  border-radius: 5px;
+  border: 1px solid rgb(216, 215, 215);
+  color: rgb(75, 75, 75);
+  z-index: 1;
+}
+
+.cryptoMenu__container > div > p,
+.cryptoMenu__container__exchanges > div > p,
+.cryptoMenu__container__nft > div > p,
+.cryptoMenu__container_learn > div > p {
+  padding: 10px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cryptoMenu__container > div > p:hover,
+.cryptoMenu__container__exchanges > div > p:hover,
+.cryptoMenu__container__nft > div > p:hover,
+.cryptoMenu__container_learn > div > p:hover {
+  background-color: rgba(199, 198, 198, 0.212);
+}
+
+.cryptoMenu__container__exchanges {
+  top: 100px;
+  left: 630px;
+}
+
+.cryptoMenu__container__nft {
+  top: 100px;
+  left: 720px;
+}
+
+.cryptoMenu__container_learn {
+  top: 100px;
+  left: 775px;
+}
+
+.cryptoMenu__container__top {
+  padding-top: 5px;
+  border-bottom: 1px solid rgb(216, 215, 215);
+}
+
+.cryptoMenu__container__nft > .cryptoMenu__container__top {
+  padding: 5px 0;
+}
+
+.cryptoMenu__container__mid {
+  padding-top: 5px;
+  border-bottom: 1px solid rgb(216, 215, 215);
+}
+
+.cryptoMenu__container__bt {
+  padding: 5px 0;
+}
