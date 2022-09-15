@@ -32,7 +32,9 @@ const Home = () => {
           </p>
         </div>
 
-        <Table />
+        <div className="main__tableContainer">
+          <Table />
+        </div>
       </div>
     </div>
   );

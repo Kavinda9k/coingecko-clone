@@ -1,0 +1,173 @@
+.footer__main {
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  background-color: #1f1f1f;
+  color: white;
+  text-align: center;
+  padding-bottom: 100px;
+  margin-top: 100px;
+}
+
+.disClaimer__footer {
+  font-size: 10px;
+  padding: 20px 100px;
+  background-color: #4b4343;
+}
+
+.footer__btns {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  width: 68%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.footer__btns > * {
+  font-size: 12px;
+}
+
+.footer__btns__1 {
+  width: 25%;
+}
+
+.footer__btns__5 {
+  width: 21%;
+}
+
+.footer__btns__1 > p {
+  margin-top: 20px;
+}
+
+.footer__btns__bold {
+  font-weight: 900;
+}
+
+.footer__btns__2 > p,
+.footer__btns__3 > p,
+.footer__btns__4 > p,
+.footer__btns__5 > p {
+  margin-top: 10px;
+}
+
+.footer__btns__5 > form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.footer__btns__5 > form > input {
+  height: 30px;
+  border-radius: 4px;
+  border: none;
+  color: rgba(128, 128, 128, 0.699);
+  padding: 0 10px;
+}
+
+.footer__btns__5 > form > button {
+  width: 30%;
+  margin-top: 8px;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+  background-color: #8cc63f;
+}
+
+.footer__links > p > a {
+  color: rgba(255, 255, 255, 0.671);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer__links > p > a:hover {
+  color: white;
+}
+
+.footer__links {
+  margin-top: 100px;
+}
+
+.footer__btns__5 > div > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__btns__5 > div > p {
+  margin-bottom: 10px;
+}
+
+.footer__btns__5 > div > div > img {
+  width: 49%;
+}
+
+.footer__main__mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .footer__main {
+    display: none;
+    width: 100vw;
+  }
+
+  .footer__main__mobile {
+    display: block;
+    background-color: #242222;
+    width: 100vw;
+  }
+
+  .footer__main__mobile__btns {
+    color: white;
+    font-size: 10px;
+    padding: 20px 50px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .footer__main__mobile__btns > a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 701px) {
+  .footer__main {
+    width: 100vw;
+  }
+
+  .footer__btns > div > * {
+    font-size: 9px;
+  }
+
+  .footer__btns__1 > img {
+    width: 100px;
+  }
+  .footer__btns__1 > p {
+    width: 100px;
+  }
+
+  .disClaimer__footer {
+    font-size: 5px;
+    padding: 20px auto;
+    background-color: #4b4343;
+  }
+
+  .footer__btns__5 > form > button {
+    width: 80px;
+    margin-top: 8px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    background-color: #8cc63f;
+  }
+
+  .footer__btns__5 > form > input {
+    font-size: 10px;
+  }
+}

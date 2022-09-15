@@ -3,6 +3,7 @@ import "../css/Table.css";
 import { useData } from "../Context/Dataprovider";
 import { useNavigate } from "react-router-dom";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
+import { useTheme } from "../Context/ThemeContext";
 
 interface Ilogo {
   logo: string;
@@ -11,6 +12,7 @@ interface Ilogo {
 const Table = () => {
   const allData = useData();
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const renderTable = allData.data.map((d, i) => {
     const num = Number(d.priceUsd);
@@ -29,7 +31,9 @@ const Table = () => {
       <tr onClick={() => navigate(`/test/${d.id}`)}>
         <td className="coin__id">
           <div>
-            <div className="star__btn">
+            <div
+              className={theme.isDarkMode ? "star__btnDark" : "star__btnLight"}
+            >
               <StarBorderRoundedIcon />
             </div>
             {d.rank}

@@ -1,5 +1,5 @@
 .main__Container {
-  width: 68%;
+  width: 1300px;
   margin: 0 auto;
 }
 
@@ -51,4 +51,56 @@
   margin: -5px;
   padding: 0 25px;
   font-size: 12px;
+}
+
+@media only screen and (max-width: 700px) {
+  .main__Container {
+    width: 100vw;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .main__tableContainer {
+    overflow: scroll;
+    width: 100vw;
+  }
+
+  .main__heading > div > div,
+  .main__heading > div > p {
+    display: none;
+  }
+
+  .main__heading > div > h1 {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  .main__heading {
+    width: 90vw;
+    overflow: hidden;
+  }
+
+  .main__nav {
+    width: 80vw;
+    align-items: center;
+    overflow: none;
+  }
+
+  .main__nav > p {
+    margin: 0;
+    padding: 0;
+    margin-right: 15px;
+    border: none;
+    cursor: pointer;
+    color: grey;
+    font-weight: 600;
+    font-size: 12px;
+    display: inline;
+    padding: 15px 0;
+  }
+
+  .main__nav > p:nth-child(4),
+  .main__nav > p:nth-child(3) {
+    display: none;
+  }
 }

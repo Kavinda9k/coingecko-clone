@@ -8,7 +8,6 @@
   border-radius: 10px;
   padding: 10px 15px;
   margin-bottom: 10px;
-  background-color: white;
   margin-right: 10px;
 }
 
@@ -42,4 +41,15 @@
   flex-wrap: wrap;
   padding: 10px 20px;
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+  .trending__card {
+    width: 82vw;
+    margin-top: 5px;
+  }
+
+  .trending__card > img {
+    display: none;
+  }
 }

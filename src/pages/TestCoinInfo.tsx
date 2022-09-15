@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import TestChart from "./TestChart";
 import TrendingCoins from "../Components/TrendingCoins";
 import NewsRow from "../Components/NewsRow";
+import { useTheme } from "../Context/ThemeContext";
 
 export type InewsData = [
   {
@@ -43,6 +44,7 @@ type IchartData = [number, number];
 
 const TestCoinInfo = () => {
   const { id } = useParams();
+  const theme = useTheme();
 
   const [asset, setAsset] = React.useState<Iasset>();
 
@@ -91,6 +93,13 @@ const TestCoinInfo = () => {
   };
 
   React.useEffect(() => {
+    if (asset) {
+      const val = Number(asset.data.priceUsd).toFixed(2);
+      setCurrentCoinValue(Number(val));
+    }
+  }, [currentCoinValue]);
+
+  React.useEffect(() => {
     getChartData(id ? id : "bitcoin");
   }, []);
 
@@ -125,11 +134,17 @@ const TestCoinInfo = () => {
   };
 
   return (
-    <div>
+    <div className="coinInfo__container__main">
       <div className="coinInfo__container">
         <div className="coinInfo__coinNames">
-          <p>Coins</p>
-          <p className="coinInfo__name">{asset?.data.id}</p>
+          <p>Coins:</p>
+          <p
+            className={
+              theme.isDarkMode ? "coinInfo__nameDark" : "coinInfo__name"
+            }
+          >
+            {asset?.data.id}
+          </p>
         </div>
 
         <div className="coinInfo__stats_container">
@@ -150,7 +165,13 @@ const TestCoinInfo = () => {
                 </h4>
               </div>
               <p className="rank__Deci">1.000000 {asset?.data.symbol}</p>
-              <div className="coinInfo__stats_containerL__Top__Btns">
+              <div
+                className={
+                  theme.isDarkMode
+                    ? "coinInfo__stats_containerL__Top__BtnsDark"
+                    : "coinInfo__stats_containerL__Top__Btns"
+                }
+              >
                 <button>SH</button>
                 <button>BE</button>
                 <button>ST</button>
@@ -161,19 +182,37 @@ const TestCoinInfo = () => {
               <div>
                 <div>
                   <p>Market Cap</p>
-                  <p className="coinInfo__stats_containerL__Bottom_stat">
+                  <p
+                    className={
+                      theme.isDarkMode
+                        ? "coinInfo__stats_containerL__Bottom_statDark"
+                        : "coinInfo__stats_containerL__Bottom_stat"
+                    }
+                  >
                     ${Number(asset?.data.marketCapUsd).toLocaleString("en-US")}
                   </p>
                 </div>
                 <div>
                   <p>24 Hour Trading Volume</p>
-                  <p className="coinInfo__stats_containerL__Bottom_stat">
+                  <p
+                    className={
+                      theme.isDarkMode
+                        ? "coinInfo__stats_containerL__Bottom_statDark"
+                        : "coinInfo__stats_containerL__Bottom_stat"
+                    }
+                  >
                     ${Number(asset?.data.volumeUsd24Hr).toLocaleString("en-US")}
                   </p>
                 </div>
                 <div>
                   <p>Fully Diluted Volume</p>
-                  <p className="coinInfo__stats_containerL__Bottom_stat">
+                  <p
+                    className={
+                      theme.isDarkMode
+                        ? "coinInfo__stats_containerL__Bottom_statDark"
+                        : "coinInfo__stats_containerL__Bottom_stat"
+                    }
+                  >
                     ${Number(asset?.data.maxSupply).toLocaleString("en-US")}
                   </p>
                 </div>
@@ -182,19 +221,37 @@ const TestCoinInfo = () => {
               <div>
                 <div>
                   <p>Vwap 24Hr</p>
-                  <p className="coinInfo__stats_containerL__Bottom_stat">
+                  <p
+                    className={
+                      theme.isDarkMode
+                        ? "coinInfo__stats_containerL__Bottom_statDark"
+                        : "coinInfo__stats_containerL__Bottom_stat"
+                    }
+                  >
                     ${Number(asset?.data.vwap24Hr).toLocaleString("en-US")}
                   </p>
                 </div>
                 <div>
                   <p>Total Supply</p>
-                  <p className="coinInfo__stats_containerL__Bottom_stat">
+                  <p
+                    className={
+                      theme.isDarkMode
+                        ? "coinInfo__stats_containerL__Bottom_statDark"
+                        : "coinInfo__stats_containerL__Bottom_stat"
+                    }
+                  >
                     ${Number(asset?.data.supply).toLocaleString("en-US")}
                   </p>
                 </div>
                 <div>
                   <p>Max Supply</p>
-                  <p className="coinInfo__stats_containerL__Bottom_stat">
+                  <p
+                    className={
+                      theme.isDarkMode
+                        ? "coinInfo__stats_containerL__Bottom_statDark"
+                        : "coinInfo__stats_containerL__Bottom_stat"
+                    }
+                  >
                     ${Number(asset?.data.maxSupply).toLocaleString("en-US")}
                   </p>
                 </div>
@@ -318,7 +375,13 @@ const TestCoinInfo = () => {
             <div className="coinInfo__chart_containerR__converter">
               <h2>Convert {asset?.data.symbol} to USD</h2>
               <div>
-                <p>{asset?.data.symbol}</p>
+                <p
+                  className={
+                    theme.isDarkMode ? "converter__Dark" : "converter__Light"
+                  }
+                >
+                  {asset?.data.symbol}
+                </p>
                 <input
                   type="number"
                   onChange={(e) => {
@@ -328,7 +391,13 @@ const TestCoinInfo = () => {
                 />
               </div>
               <div>
-                <p>USD</p>
+                <p
+                  className={
+                    theme.isDarkMode ? "converter__Dark" : "converter__Light"
+                  }
+                >
+                  USD
+                </p>
                 <input
                   type="number"
                   value={convertToUSDValue}

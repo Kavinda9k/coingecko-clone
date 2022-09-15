@@ -1,0 +1,8 @@
+.app__dark {
+  overflow-x: hidden;
+  background-color: #191919;
+  color: white;
+}
+.app__light {
+  overflow-x: hidden;
+}

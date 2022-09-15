@@ -5,6 +5,7 @@ import App from "./App";
 import Dataprovider from "./Context/Dataprovider";
 import ChartDataProvider from "./Context/ChartDataProvider";
 import TrendingData from "./Context/TrendingData";
+import ThemeContextProvider from "./Context/ThemeContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,7 +15,9 @@ root.render(
     <Dataprovider>
       <ChartDataProvider>
         <TrendingData>
-          <App />
+          <ThemeContextProvider>
+            <App />
+          </ThemeContextProvider>
         </TrendingData>
       </ChartDataProvider>
     </Dataprovider>

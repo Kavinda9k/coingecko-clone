@@ -1,6 +1,7 @@
 table {
   border-collapse: collapse;
-  width: 100%;
+  width: 1300px;
+  overflow-y: scroll;
 }
 
 td,
@@ -51,10 +52,15 @@ tr:hover {
   margin-right: 6px;
 }
 
-.star__btn > .MuiSvgIcon-root {
+.star__btnLight > .MuiSvgIcon-root {
   width: 20px;
   height: 20px;
   color: rgba(0, 0, 0, 0.555);
+}
+.star__btnDark {
+  width: 20px;
+  height: 20px;
+  color: rgba(184, 184, 184, 0.726);
 }
 
 .coin__logo {
@@ -72,4 +78,13 @@ tr:hover {
 .positve_number {
   color: #3fc646;
   font-weight: 600;
+}
+
+@media only screen and (max-width: 700px) {
+  table {
+    border-collapse: collapse;
+    width: 100vw;
+    overflow-x: scroll;
+    margin-bottom: 100px;
+  }
 }

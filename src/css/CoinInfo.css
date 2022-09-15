@@ -1,5 +1,5 @@
 .coinInfo__container {
-  width: 68%;
+  width: 75vw;
   margin: 0 auto;
   margin-bottom: 100px;
 }
@@ -10,13 +10,17 @@
 }
 
 .coinInfo__coinNames > p {
-  margin-left: 10px;
   font-weight: 700;
   color: #8cc63f;
+  margin-right: 10px;
 }
 
 .coinInfo__coinNames > .coinInfo__name {
   color: black;
+}
+
+.coinInfo__coinNames > .coinInfo__nameDark {
+  color: white;
 }
 
 .coinInfo__stats_container {
@@ -43,7 +47,7 @@
   color: white;
   border-radius: 5px;
   padding: 4px 0;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
 .coinInfo__stats_containerL__Top__name > img {
@@ -76,6 +80,15 @@
   border: 1px solid whitesmoke;
 }
 
+.coinInfo__stats_containerL__Top__BtnsDark > button {
+  background-color: transparent;
+  padding: 5px 15px;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+  color: white;
+}
+
 .coinInfo__stats_containerL__Bottom {
   display: flex;
   justify-content: space-between;
@@ -101,6 +114,11 @@
 
 .coinInfo__stats_containerL__Bottom_stat {
   color: black;
+  font-weight: 600;
+}
+
+.coinInfo__stats_containerL__Bottom_statDark {
+  color: white;
   font-weight: 600;
 }
 
@@ -288,6 +306,14 @@
   border-radius: 5px;
 }
 
+.coinInfo__chart_containerR__PriceStatistics {
+  padding-bottom: 200px;
+}
+
+.converter__Dark {
+  color: black;
+}
+
 .coinInfo__chart_containerR__converter > p {
   font-size: 14px;
   font-weight: 600;
@@ -317,4 +343,165 @@
 
 .coinInfo__NewsContainer {
   margin-top: 100px;
+}
+
+@media only screen and (max-width: 700px) {
+  .coinInfo__container {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .coinInfo__stats_containerL__Bottom {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .coinInfo__stats_containerL__Bottom > div {
+    width: 90vw;
+  }
+
+  .coinInfo__stats_containerL__Bottom > div > div {
+    padding: 10px 0;
+    border-bottom: 1px solid whitesmoke;
+    font-size: 12px;
+    color: gray;
+    display: flex;
+    width: 90vw;
+  }
+
+  .coinInfo__stats_container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .coinInfo__stats_containeR {
+    margin-top: 20px;
+  }
+
+  .coinInfo__mainBtns_container {
+    width: 100vw;
+    overflow-x: scroll;
+  }
+
+  .coinInfo__mainBtns_container > :nth-child(4) {
+    display: none;
+  }
+
+  .coinInfo__chart_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
+  .coinInfo__chart_containerL {
+    width: 100vw;
+  }
+
+  .coinInfo__chart_containerL > h1,
+  .coinInfo__chart_containerL > h5 {
+    margin-top: 10px;
+    padding: 0 10px;
+  }
+
+  .coinInfo__chart_graphBtns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .coinInfo__chart_graphBtns > div {
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+
+  .trending__main > h1,
+  .newsRow__main > h1 {
+    font-size: 25px;
+    margin-left: 20px;
+  }
+
+  .trendingCard__container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    margin-top: 10px;
+  }
+
+  .newsRow__container {
+    flex-direction: column;
+    padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 701px) {
+  .coinInfo__stats_containerL__Bottom {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .coinInfo__container {
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .coinInfo__stats_container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .coinInfo__stats_containerL {
+    width: 90vw;
+  }
+
+  .coinInfo__stats_containerL__Bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .coinInfo__stats_containerL__Bottom > div > div {
+    display: flex;
+    justify-content: space-between;
+    width: 86vw;
+    margin-right: 0;
+    padding: 10px 15px;
+    border-bottom: 1px solid whitesmoke;
+    font-size: 13px;
+    color: grey;
+  }
+
+  .coinInfo__stats_containerL__Bottom_stat {
+    margin-right: 30px;
+  }
+
+  .coinInfo__stats_container {
+    display: inline;
+    padding: 10px;
+  }
+
+  .coinInfo__chart_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
+  .coinInfo__chart_containerL {
+    width: 100vw;
+  }
+
+  .coinInfo__chart_containerL > h1,
+  .coinInfo__chart_containerL > h5 {
+    margin-top: 10px;
+    padding: 0 10px;
+  }
+
+  .coinInfo__chart_graphBtns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .coinInfo__chart_graphBtns > div {
+    margin-top: 5px;
+    margin-left: 10px;
+  }
 }

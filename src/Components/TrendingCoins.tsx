@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/TrendingCoins.css";
 import { useTrendingData } from "../Context/TrendingData";
+import "../css/CoinInfo.css";
 
 const TrendingCoins = () => {
   const trendingCoins = useTrendingData();
