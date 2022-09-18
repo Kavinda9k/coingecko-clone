@@ -1,53 +1,52 @@
+import { useEffect, useState } from "react";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
-import { useChartData } from "../Context/ChartDataProvider";
-import React from "react";
-import "../css/Chart.css";
-import { useParams } from "react-router-dom";
+import { IChartCoinDataXY } from "../../../types/provider.interface";
+import "../../../css/Chart.css";
 
-interface IChartXYData {
+interface ICoinPriceHistory {
+  priceData: IChartCoinDataXY[];
+}
+
+interface IGraphStringDataXY {
   name: string;
   uv: string;
 }
 
-type IcoinName = {
-  data: IchartData[];
-};
+const CoinPriceChart = ({ priceData }: ICoinPriceHistory) => {
+  const [chartDataXY, setChartDataXY] = useState<IGraphStringDataXY[]>([]);
 
-type IchartData = [number, number];
-
-const TestChart: React.FC<IcoinName> = ({ data }) => {
-  const [data3, setData3] = React.useState<IChartXYData[]>([]);
-
-  function mapChart() {
-    const chartStringdata: IChartXYData[] = [
+  const convertToStringDataXY = () => {
+    const chartStringdata: IGraphStringDataXY[] = [
       {
         name: "",
         uv: "",
       },
     ];
 
-    data.map((d) => {
-      var date = new Date(d[0] * 1);
-      var final_date =
+    priceData.map(([time, number]) => {
+      let date = new Date(time);
+      let dateInWords =
         date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+
       chartStringdata.push({
-        name: final_date.toString(),
-        uv: d[1].toString(),
+        name: dateInWords.toString(),
+        uv: number.toString(),
       });
     });
-    setData3(chartStringdata);
-  }
 
-  React.useEffect(() => {
-    mapChart();
-  }, [data]);
+    setChartDataXY(chartStringdata);
+  };
+
+  useEffect(() => {
+    convertToStringDataXY();
+  }, [priceData]);
 
   return (
     <div>
       <LineChart
         width={800}
         height={500}
-        data={data3}
+        data={chartDataXY.slice(1)}
         margin={{ top: 5, right: 30, left: -20, bottom: 5 }}
       >
         <Line
@@ -71,4 +70,4 @@ const TestChart: React.FC<IcoinName> = ({ data }) => {
   );
 };
 
-export default TestChart;
+export default CoinPriceChart;

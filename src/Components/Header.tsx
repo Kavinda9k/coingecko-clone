@@ -1,23 +1,13 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useTheme } from "../Context/ThemeProvider";
 import "../css/Header.css";
 import BedtimeIcon from "@mui/icons-material/Bedtime";
-import CryptoMenu from "../Components/CryptoMenu";
-import Exchanges from "../Components/Exchanges";
-import NFT from "../Components/NFT";
-import LearnCrypto from "../Components/LearnCrypto";
-import { useNavigate } from "react-router-dom";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import { useTheme } from "../Context/ThemeContext";
 
 const Header = () => {
-  const [cryptoMenu, setCryptoMenu] = React.useState(false);
-  const [exCMenu, setExCMenu] = React.useState(false);
-  const [nftMenu, setNftMenu] = React.useState(false);
-  const [learnMenu, setLearnMenu] = React.useState(false);
-
   const navigate = useNavigate();
   const theme = useTheme();
 
@@ -46,9 +36,9 @@ const Header = () => {
           <button className={theme.isDarkMode ? "darkTopBtn" : ""}>EN</button>
           <button className={theme.isDarkMode ? "darkTopBtn" : ""}>USD</button>
           {theme.isDarkMode ? (
-            <WbSunnyIcon onClick={() => theme.changeTheme?.()} />
+            <WbSunnyIcon onClick={() => theme.toggleTheme?.()} />
           ) : (
-            <BedtimeIcon onClick={() => theme.changeTheme?.()} />
+            <BedtimeIcon onClick={() => theme.toggleTheme?.()} />
           )}
           <button className="sub_btn">Subscribe</button>
         </div>
@@ -68,46 +58,10 @@ const Header = () => {
             />
           )}
 
-          <p
-            onMouseEnter={() => {
-              setExCMenu(false);
-              setCryptoMenu(true);
-              setNftMenu(false);
-              setLearnMenu(false);
-            }}
-          >
-            Cryptocurrencies
-          </p>
-          <p
-            onMouseEnter={() => {
-              setExCMenu(true);
-              setCryptoMenu(false);
-              setNftMenu(false);
-              setLearnMenu(false);
-            }}
-          >
-            Exchanges
-          </p>
-          <p
-            onMouseEnter={() => {
-              setExCMenu(false);
-              setCryptoMenu(false);
-              setNftMenu(true);
-              setLearnMenu(false);
-            }}
-          >
-            NFT
-          </p>
-          <p
-            onMouseEnter={() => {
-              setExCMenu(false);
-              setCryptoMenu(false);
-              setNftMenu(false);
-              setLearnMenu(true);
-            }}
-          >
-            Learn Crypto
-          </p>
+          <p>Cryptocurrencies</p>
+          <p>Exchanges</p>
+          <p>NFT</p>
+          <p>Learn Crypto</p>
           <p>Products</p>
         </div>
 
@@ -118,28 +72,6 @@ const Header = () => {
             <p>Search</p>
           </div>
         </div>
-        {cryptoMenu && (
-          <div onMouseLeave={() => setCryptoMenu(false)}>
-            <CryptoMenu />
-          </div>
-        )}
-        {exCMenu && (
-          <div onMouseLeave={() => setExCMenu(false)}>
-            <Exchanges />
-          </div>
-        )}
-
-        {nftMenu && (
-          <div onMouseLeave={() => setNftMenu(false)}>
-            <NFT />
-          </div>
-        )}
-
-        {learnMenu && (
-          <div onMouseLeave={() => setLearnMenu(false)}>
-            <LearnCrypto />
-          </div>
-        )}
       </div>
 
       <div className="header__bottom__BtnsL__smallScreen">

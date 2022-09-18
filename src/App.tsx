@@ -1,12 +1,10 @@
-import React from "react";
 import "./css/App.css";
 import Header from "./Components/Header";
-import Home from "./pages/Home";
-import CoinInfo from "./pages/CoinInfo";
+import Home from "./pages/HomePage/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import TestCoinInfo from "./pages/TestCoinInfo";
 import Footer from "./Components/Footer";
-import { useTheme } from "./Context/ThemeContext";
+import { useTheme } from "./Context/ThemeProvider";
+import CoinInfoPage from "./pages/CoinInfoPage/CoinInfoPage";
 
 const App = () => {
   const theme = useTheme();
@@ -17,8 +15,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/coin/:id" element={<CoinInfo />} />
-          <Route path="/test/:id" element={<TestCoinInfo />} />
+          <Route path="/coin/:id" element={<CoinInfoPage />} />
         </Routes>
         <Footer />
       </div>

@@ -1,7 +1,6 @@
-import React from "react";
-import "../css/Home.css";
+import "../../css/Home.css";
 import Switch from "@mui/material/Switch";
-import Table from "../Components/Table";
+import Table from "./components/Table";
 
 const Home = () => {
   return (

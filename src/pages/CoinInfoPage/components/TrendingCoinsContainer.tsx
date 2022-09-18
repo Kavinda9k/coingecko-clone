@@ -1,10 +1,9 @@
-import React from "react";
-import "../css/TrendingCoins.css";
-import { useTrendingData } from "../Context/TrendingData";
-import "../css/CoinInfo.css";
+import "../../../css/TrendingCoins.css";
+import { useTrendingCoinsData } from "../../../Context/TrendingCoinsProvider";
+import "../../../css/CoinInfo.css";
 
-const TrendingCoins = () => {
-  const trendingCoins = useTrendingData();
+const TrendingCoinsContainer = () => {
+  const trendingCoins = useTrendingCoinsData();
 
   const renderCards =
     trendingCoins &&
@@ -34,4 +33,4 @@ const TrendingCoins = () => {
   );
 };
 
-export default TrendingCoins;
+export default TrendingCoinsContainer;

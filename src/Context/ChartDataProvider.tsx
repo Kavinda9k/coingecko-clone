@@ -1,28 +1,22 @@
-import React, { createContext, useContext } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import { IProps, IChartCoinDataXY } from "../types/provider.interface";
 
-interface IchartData {
-  chartData: IchartDataArr[];
+interface IChartCoinPriceData {
+  chartData: IChartCoinDataXY[];
   changeCoin?: (name: string) => void;
 }
 
-interface Ichildren {
-  children: React.ReactNode;
-}
-
-type IchartDataArr = [time: number, price: number];
-
-const ChartContext = createContext<IchartData>({
+const ChartDataContext = createContext<IChartCoinPriceData>({
   chartData: [[0, 0]],
 });
 
 export const useChartData = () => {
-  return useContext(ChartContext);
+  return useContext(ChartDataContext);
 };
 
-const ChartDataProvider: React.FC<Ichildren> = ({ children }) => {
-  const [chartData, setChartData] = React.useState<IchartDataArr[]>([]);
-  const [currentCoinName, setCurrentCoinName] =
-    React.useState<string>("bitcoin");
+const ChartDataProvider = ({ children }: IProps) => {
+  const [chartData, setChartData] = useState<IChartCoinDataXY[]>([]);
+  const [currentCoinName, setCurrentCoinName] = useState<string>("bitcoin");
 
   const getChartData = async () => {
     const response = await fetch(
@@ -33,7 +27,7 @@ const ChartDataProvider: React.FC<Ichildren> = ({ children }) => {
     setChartData(responseJson.prices);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     getChartData();
   }, [currentCoinName]);
 
@@ -42,9 +36,9 @@ const ChartDataProvider: React.FC<Ichildren> = ({ children }) => {
   };
 
   return (
-    <ChartContext.Provider value={{ chartData, changeCoin }}>
+    <ChartDataContext.Provider value={{ chartData, changeCoin }}>
       {children}
-    </ChartContext.Provider>
+    </ChartDataContext.Provider>
   );
 };
 
