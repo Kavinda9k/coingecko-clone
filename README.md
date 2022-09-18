@@ -1,6 +1,3 @@
-There are several things to work on:
-1. Fixing the currency converter on the /test/:id pages, right now it is not functional
-2. News cards: using newsapi to get news related to /test/:id(coin) 
 
 ## Available Scripts
 
