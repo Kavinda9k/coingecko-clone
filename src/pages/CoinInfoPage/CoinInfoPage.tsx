@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useCoinSpecificData } from "../../Context/CoinSpecificDataProvider";
 import "../../css/CoinInfo.css";
 
-import { ICoinSpecificData } from "../../types/provider.interface";
+import { ICoinSpecificData } from "../../types/coinGecko.interface";
 
 //Page Components
 import CoinStatsContainer from "./components/CoinStatsContainer";
@@ -13,19 +12,26 @@ import CurrenyConverter from "./components/CurrenyConverter";
 import TrendingCoinsContainer from "./components/TrendingCoinsContainer";
 import NewsContainer from "./components/NewsContainer";
 
+import { useAllCoinGeckoData } from "../../Context/CoinGeckoApiDataProvider";
+
 const CoinInfoPage = () => {
+  const [count, setCount] = useState(0);
   const { id } = useParams();
-  const coin = useCoinSpecificData();
+  const coin = useAllCoinGeckoData();
 
   useEffect(() => {
     if (typeof id === "string") {
-      coin.getNewCoinData?.(id);
+      coin?.getCoinSpecificCoinData(id);
+      setTimeout(() => {
+        setCount((prev) => prev + 1);
+      }, 1000);
     }
   }, [id]);
 
   useEffect(() => {
-    setCoinSpecificData(coin.coinSpecificData);
-  });
+    setCoinSpecificData(coin?.coinSpecificData);
+    console.log("render");
+  }, [count]);
 
   const [coinSpecificData, setCoinSpecificData] = useState<ICoinSpecificData>();
 

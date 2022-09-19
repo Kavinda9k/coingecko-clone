@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { IProps, INewsData } from "../../../types/provider.interface";
+import { IProps, INewsData } from "../../../types/coinGecko.interface";
 import "../../../css/NewsRow.css";
 import "../../../css/CoinInfo.css";
 

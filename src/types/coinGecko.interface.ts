@@ -1,24 +1,3 @@
-export type IChartCoinDataXY = [time: number, price: number];
-
-export interface IProps {
-  children?: React.ReactNode;
-  coinInfo?: ICoinSpecificData;
-  coinName?: string;
-}
-
-export interface INewsData {
-  author?: string;
-  title: string;
-  urlToImage?: string;
-  publishedAt?: string;
-  description?: string;
-  content?: string;
-  source?: {
-    id: string;
-    name: string;
-  };
-}
-
 export interface IAllCoinsdata {
   id: string;
   rank: string;
@@ -32,6 +11,22 @@ export interface IAllCoinsdata {
   high_24h: number;
   low_24h: number;
   price_change_percentage_24h: number;
+}
+
+export interface ITrendingCoinData {
+  item: {
+    coin_id: number;
+    id: string;
+    large: string;
+    market_cap_rank: number;
+    name: string;
+    price_btc: number;
+    score: number;
+    slug: string;
+    small: string;
+    symbol: string;
+    thumb: string;
+  };
 }
 
 export interface ICoinSpecificData {
@@ -80,21 +75,7 @@ export interface ICoinSpecificData {
   };
 }
 
-export interface ITrendingCoinData {
-  item: {
-    coin_id: number;
-    id: string;
-    large: string;
-    market_cap_rank: number;
-    name: string;
-    price_btc: number;
-    score: number;
-    slug: string;
-    small: string;
-    symbol: string;
-    thumb: string;
-  };
-}
+export type IChartCoinDataXY = [time: number, price: number];
 
 export interface INewsData {
   author?: string;
@@ -107,4 +88,17 @@ export interface INewsData {
     id: string;
     name: string;
   };
+}
+
+export interface IProps {
+  children?: React.ReactNode;
+  coinInfo?: ICoinSpecificData;
+  coinName?: string;
+}
+
+export interface ICoinGeckoService {
+  getAllCoinsdata(): Promise<IAllCoinsdata[]>;
+  getTrendingCoins(): Promise<ITrendingCoinData[]>;
+  getChartData(name: string): Promise<IChartCoinDataXY[]>;
+  getCoinSpecificData(name?: string): Promise<ICoinSpecificData>;
 }

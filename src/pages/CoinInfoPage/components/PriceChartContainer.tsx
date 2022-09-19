@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CoinPriceChart from "./CoinPriceChart";
-import { IProps, IChartCoinDataXY } from "../../../types/provider.interface";
+import { IProps, IChartCoinDataXY } from "../../../types/coinGecko.interface";
 
 const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
   const [chartData, setChartData] = useState<IChartCoinDataXY[]>([[0, 0]]);

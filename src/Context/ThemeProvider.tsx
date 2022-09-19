@@ -1,5 +1,5 @@
 import { useContext, createContext, useState } from "react";
-import { IProps } from "../types/provider.interface";
+import { IProps } from "../types/coinGecko.interface";
 
 interface IThemeMode {
   isDarkMode: boolean;

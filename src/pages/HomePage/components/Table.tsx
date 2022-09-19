@@ -1,16 +1,15 @@
 import "../../../css/Table.css";
-import { useAllCoinsData } from "../../../Context/AllCoinsDataProvider";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../../Context/ThemeProvider";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
+import { useAllCoinGeckoData } from "../../../Context/CoinGeckoApiDataProvider";
 
 const Table = () => {
   const navigate = useNavigate();
-  const allCoinsData = useAllCoinsData();
-
+  const allCs = useAllCoinGeckoData();
   const theme = useTheme();
 
-  const renderTable = allCoinsData.map((coin) => {
+  const renderTable = allCs?.allCoinsData.map((coin) => {
     return (
       <tr onClick={() => navigate(`/coin/${coin.id}`)}>
         <td className="coin__id">

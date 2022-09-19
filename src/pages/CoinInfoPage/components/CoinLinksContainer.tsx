@@ -1,4 +1,4 @@
-import { IProps } from "../../../types/provider.interface";
+import { IProps } from "../../../types/coinGecko.interface";
 import "../../../css/CoinInfo.css";
 
 const CoinLinksContainer = ({ coinInfo }: IProps) => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
-import { IChartCoinDataXY } from "../../../types/provider.interface";
+import { IChartCoinDataXY } from "../../../types/coinGecko.interface";
 import "../../../css/Chart.css";
 
 interface ICoinPriceHistory {
