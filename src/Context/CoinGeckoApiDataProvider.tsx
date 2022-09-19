@@ -34,17 +34,23 @@ const CoinGeckoApiDataProvider = ({ children }: IProps) => {
   const CoinGeckoApiData: ICoinGeckoService = CoinGeckoService;
 
   useEffect(() => {
-    CoinGeckoApiData.getTrendingCoins().then((value) => {
-      setTrendingCoins(value);
-    });
+    CoinGeckoApiData.getTrendingCoins()
+      .then((value) => {
+        setTrendingCoins(value);
+      })
+      .catch((err) => console.log(err));
 
-    CoinGeckoApiData.getAllCoinsdata().then((value) => {
-      setAllCoinsData(value);
-    });
+    CoinGeckoApiData.getAllCoinsdata()
+      .then((value) => {
+        setAllCoinsData(value);
+      })
+      .catch((err) => console.log(err));
 
-    CoinGeckoApiData.getChartData("bitcoin").then((value) => {
-      setChartData(value);
-    });
+    CoinGeckoApiData.getChartData("bitcoin")
+      .then((value) => {
+        setChartData(value);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   const getCoinSpecificCoinData = (name: string) => {
