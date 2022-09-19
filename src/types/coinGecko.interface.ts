@@ -94,6 +94,7 @@ export interface IProps {
   children?: React.ReactNode;
   coinInfo?: ICoinSpecificData;
   coinName?: string;
+  trendingCoins?: ITrendingCoinData[];
 }
 
 export interface ICoinGeckoService {

@@ -9,6 +9,7 @@ const Table = () => {
   const allCoins = useAllCoinGeckoData();
   const theme = useTheme();
 
+  console.log("render");
   const renderTable = allCoins?.allCoinsData.map((coin) => {
     return (
       <tr onClick={() => navigate(`/coin/${coin.id}`)}>

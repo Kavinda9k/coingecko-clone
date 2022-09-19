@@ -16,7 +16,7 @@ class CoinGeckoService implements ICoinGeckoService {
       `https://api.coingecko.com/api/v3/search/trending`
     );
     const responseJson = await response.json();
-    return responseJson;
+    return responseJson.coins;
 
     throw new Error("Method not implemented.");
   };

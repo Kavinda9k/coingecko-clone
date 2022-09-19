@@ -17,11 +17,11 @@ import { useAllCoinGeckoData } from "../../Context/CoinGeckoApiDataProvider";
 const CoinInfoPage = () => {
   const [count, setCount] = useState(0);
   const { id } = useParams();
-  const coin = useAllCoinGeckoData();
+  const coins = useAllCoinGeckoData();
 
   useEffect(() => {
     if (typeof id === "string") {
-      coin?.getCoinSpecificCoinData(id);
+      coins?.getCoinSpecificCoinData(id);
       setTimeout(() => {
         setCount((prev) => prev + 1);
       }, 1000);
@@ -29,7 +29,7 @@ const CoinInfoPage = () => {
   }, [id]);
 
   useEffect(() => {
-    setCoinSpecificData(coin?.coinSpecificData);
+    setCoinSpecificData(coins?.coinSpecificData);
     console.log("render");
   }, [count]);
 
@@ -69,7 +69,7 @@ const CoinInfoPage = () => {
       </div>
 
       <div className="coinInfo__trendingCoinsContainer">
-        <TrendingCoinsContainer />
+        <TrendingCoinsContainer trendingCoins={coins?.trendingCoins} />
       </div>
 
       <div className="coinInfo__NewsContainer">
