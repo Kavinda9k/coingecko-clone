@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "../../css/CoinInfo.css";
+import "../../css/CoinInfoPage.css";
 
 import { ICoinSpecificData } from "../../types/coinGecko.interface";
 

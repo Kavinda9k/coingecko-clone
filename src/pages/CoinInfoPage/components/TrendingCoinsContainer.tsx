@@ -1,5 +1,5 @@
 import "../../../css/TrendingCoins.css";
-import "../../../css/CoinInfo.css";
+import "../../../css/CoinInfoPage.css";
 
 import { IProps } from "../../../types/coinGecko.interface";
 

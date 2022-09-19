@@ -1,5 +1,5 @@
 import { IProps } from "../../../types/coinGecko.interface";
-import "../../../css/CoinInfo.css";
+import "../../../css/CoinInfoPage.css";
 
 const CoinLinksContainer = ({ coinInfo }: IProps) => {
   const websiteLinks = coinInfo?.links?.homepage.map((link) => {

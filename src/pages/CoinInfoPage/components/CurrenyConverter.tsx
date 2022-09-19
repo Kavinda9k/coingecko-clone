@@ -1,35 +1,10 @@
 import { IProps } from "../../../types/coinGecko.interface";
+import Calculator from "./Calculator";
 
 const CurrenyConverter = ({ coinInfo }: IProps) => {
   return (
     <div className="coinInfo__chart_containerR">
-      <div className="coinInfo__chart_containerR__converter">
-        <h2>Convert {coinInfo?.name} to USD</h2>
-        <div>
-          <p>{coinInfo?.symbol.toLocaleUpperCase()}</p>
-          <input
-            type="number"
-            // onChange={(e) => {
-            //   convertToUsd(Number(e.target.value));
-            // }}
-            // value={0}
-          />
-        </div>
-        <div>
-          <p>USD</p>
-          <input
-            type="number"
-            // value={0}
-            // onChange={(e) => {
-            //   convertToCrypto(Number(e.target.value));
-            // }}
-          />
-        </div>
-        <p>
-          1 {coinInfo?.symbol.toLocaleUpperCase()} = $
-          {coinInfo?.market_data.current_price.usd?.toLocaleString("en-US")}
-        </p>
-      </div>
+      <Calculator coinInfo={coinInfo} />
 
       <div className="coinInfo__chart_containerR__PriceStatistics">
         <h2>{coinInfo?.symbol.toLocaleUpperCase()} Price Statistics</h2>

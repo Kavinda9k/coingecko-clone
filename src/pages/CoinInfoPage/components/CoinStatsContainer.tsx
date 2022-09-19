@@ -1,5 +1,5 @@
 import { IProps } from "../../../types/coinGecko.interface";
-import "../../../css/CoinInfo.css";
+import "../../../css/CoinInfoPage.css";
 
 const CoinStatsContainer = ({ coinInfo }: IProps) => {
   return (
