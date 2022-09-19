@@ -52,48 +52,22 @@ const CoinGeckoApiDataProvider = ({ children }: IProps) => {
     },
   });
 
-  // const alltrendingCoins: ICoinGeckoService = CoinGeckoService;
+  const CoinGeckoApiData: ICoinGeckoService = CoinGeckoService;
 
-  // alltrendingCoins.getTrendingCoins().then((value) => {
-  //   setTrendingCoins(value);
-  // });
-
-  // const allCoinsDataValues: ICoinGeckoService = CoinGeckoService;
-
-  // allCoinsDataValues.getAllCoinsdata().then((value) => {
-  //   setAllCoinsData(value);
-  // });
-
-  // const allchartData: ICoinGeckoService = CoinGeckoService;
-
-  // allchartData.getChartData("bitcoin").then((value) => {
-  //   setChartData(value);
-  // });
-
-  // const coinSpecific: ICoinGeckoService = CoinGeckoService;
-
-  // const getCoinSpecificCoinData = (name: string) => {
-  //   coinSpecific.getCoinSpecificData(name).then((value) => {
-  //     setCoinSpecificData(value);
-  //   });
-  // };
-
-  const coindata: ICoinGeckoService = CoinGeckoService;
-
-  coindata.getTrendingCoins().then((value) => {
+  CoinGeckoApiData.getTrendingCoins().then((value) => {
     setTrendingCoins(value);
   });
 
-  coindata.getAllCoinsdata().then((value) => {
+  CoinGeckoApiData.getAllCoinsdata().then((value) => {
     setAllCoinsData(value);
   });
 
-  coindata.getChartData("bitcoin").then((value) => {
+  CoinGeckoApiData.getChartData("bitcoin").then((value) => {
     setChartData(value);
   });
 
   const getCoinSpecificCoinData = (name: string) => {
-    coindata.getCoinSpecificData(name).then((value) => {
+    CoinGeckoApiData.getCoinSpecificData(name).then((value) => {
       setCoinSpecificData(value);
     });
   };

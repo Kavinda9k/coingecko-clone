@@ -6,10 +6,10 @@ import { useAllCoinGeckoData } from "../../../Context/CoinGeckoApiDataProvider";
 
 const Table = () => {
   const navigate = useNavigate();
-  const allCs = useAllCoinGeckoData();
+  const allCoins = useAllCoinGeckoData();
   const theme = useTheme();
 
-  const renderTable = allCs?.allCoinsData.map((coin) => {
+  const renderTable = allCoins?.allCoinsData.map((coin) => {
     return (
       <tr onClick={() => navigate(`/coin/${coin.id}`)}>
         <td className="coin__id">
