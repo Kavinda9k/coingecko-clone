@@ -12,3 +12,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+p {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(80, 80, 80);
+}
+
+a {
+  color: #8cc63f;
+}

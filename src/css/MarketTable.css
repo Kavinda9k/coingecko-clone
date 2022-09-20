@@ -1,0 +1,73 @@
+.marketTable__container {
+  margin: 40px 0;
+}
+
+.marketTable__container > table {
+  border-collapse: collapse;
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.marketTable__container > h1 {
+  margin-bottom: 10px;
+}
+
+.marketTable__container > p {
+  margin: 15px 0;
+  color: rgba(128, 128, 128, 0.733);
+}
+
+.marketTable__container > div {
+  text-align: center;
+}
+
+.marketTable__container > div > button {
+  background-color: #8cc63f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 auto;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.marketTable__container > table > tr > td,
+.marketTable__container > table > tr > th {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid rgb(228, 228, 228);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.marketTable__container > table > tr > th {
+  font-weight: 700;
+  border-top: 1px solid rgb(228, 228, 228);
+}
+
+.marketTable__container > table > tr > td {
+  font-weight: 400;
+  border-top: 1px solid rgb(228, 228, 228);
+}
+
+.marketTable__container > table > tr {
+  cursor: pointer;
+}
+
+.marketTable__container > table > tr:hover {
+  background-color: rgba(199, 198, 198, 0.212);
+}
+
+.marketTable__blue {
+  color: rgba(31, 152, 252, 0.897);
+}
+
+@media only screen and (max-width: 700px) {
+  table {
+    border-collapse: collapse;
+    width: 100vw;
+    overflow-x: scroll;
+    margin-bottom: 100px;
+  }
+}

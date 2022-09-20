@@ -13,6 +13,8 @@ import TrendingCoinsContainer from "./components/TrendingCoinsContainer";
 import NewsContainer from "./components/NewsContainer";
 
 import { useAllCoinGeckoData } from "../../Context/CoinGeckoApiDataProvider";
+import CoinDescription from "./components/CoinDescription";
+import MarketTable from "./components/MarketTable";
 
 const CoinInfoPage = () => {
   const [count, setCount] = useState(0);
@@ -59,6 +61,14 @@ const CoinInfoPage = () => {
         <p>Tokenomics</p>
       </div>
 
+      <div className="coinInfo__chart_container__btns">
+        <button>General</button>
+        <button>Social</button>
+        <button>Developer</button>
+        <button>Widgets</button>
+        <button>Analysis</button>
+      </div>
+
       <div className="coinInfo__chart_container">
         {typeof id === "string" ? (
           <PriceChartContainer coinName={id} coinInfo={coinSpecificData} />
@@ -68,12 +78,20 @@ const CoinInfoPage = () => {
         <CurrenyConverter coinInfo={coinSpecificData} />
       </div>
 
-      <div className="coinInfo__trendingCoinsContainer">
-        <TrendingCoinsContainer trendingCoins={coins?.trendingCoins} />
+      <div className="coinInfo__DescriptionContainer">
+        <CoinDescription coinInfo={coinSpecificData} />
+      </div>
+
+      <div>
+        <MarketTable coinInfo={coinSpecificData} />
       </div>
 
       <div className="coinInfo__NewsContainer">
         {typeof id === "string" ? <NewsContainer coinName={id} /> : <div></div>}
+      </div>
+
+      <div className="coinInfo__trendingCoinsContainer">
+        <TrendingCoinsContainer trendingCoins={coins?.trendingCoins} />
       </div>
     </div>
   );
