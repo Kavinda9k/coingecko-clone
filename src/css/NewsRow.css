@@ -2,44 +2,71 @@
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
+  flex-wrap: wrap;
 }
+
 .newscontainer {
-  width: 32%;
+  width: 32.5%;
   border-radius: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   overflow-y: hidden;
-  padding-bottom: 10px;
+  height: 450px;
+  margin-bottom: 15px;
 }
 
 .newscontainer > img {
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  height: 50%;
+  height: 45%;
 }
 
-.newscontainer > div > div {
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 5px 35px;
+.newscontainer > div {
+  padding: 10px 20px;
+  height: 55%;
+  position: relative;
 }
 
-.newscontainer > div > div {
+.newscontainer > div > a {
+  text-decoration: none;
+  color: black;
 }
 
-.newscontainer > div > h5 {
-  margin-bottom: 15px;
+.newscontainer > div > a > .newName {
+  position: absolute;
+  bottom: 45px;
+}
+
+.newName > p {
+  color: grey;
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.newscontainer > div > a > h5 {
   color: #8cc63f;
+  margin-bottom: 15px;
 }
 
-.newscontainer > div > h4 {
-  margin-bottom: 8px;
+.newscontainer > div > a > p {
+  font-size: 12px;
+  margin-top: 10px;
 }
 
-.newscontainer > div > p {
-  font-size: 14px;
+.newsRow__Btn {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.newsRow__Btn > button {
+  background-color: transparent;
+  padding: 5px 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 0 auto;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 700px) {

@@ -25,9 +25,11 @@ function Calculator({ coinInfo }: IProps) {
 
   return (
     <div className="coinInfo__chart_containerR__converter">
-      <h2>Convert to USD</h2>
+      <h2>Convert {coinInfo?.symbol.toLocaleUpperCase()} to USD</h2>
       <div>
-        <p>{coinInfo?.symbol.toLocaleUpperCase()}</p>
+        <div>
+          <p>{coinInfo?.symbol.toLocaleUpperCase()}</p>
+        </div>
         <input
           type="number"
           value={cryptoValue}
@@ -35,7 +37,9 @@ function Calculator({ coinInfo }: IProps) {
         />
       </div>
       <div>
-        <p>USD</p>
+        <div>
+          <p>USD</p>
+        </div>
         <input
           type="number"
           value={usdValue}

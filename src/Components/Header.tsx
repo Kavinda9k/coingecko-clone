@@ -6,6 +6,7 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -13,34 +14,38 @@ const Header = () => {
 
   return (
     <div className="header__container">
-      <div className="header__top">
-        <div className="header__top__left">
-          <p>
-            Coins: <span>12915</span>
-          </p>
-          <p>
-            Exchanges: <span>573</span>
-          </p>
-          <p>
-            Market Cap: <span>$1,090,713,809,194</span>
-          </p>
-          <p>
-            24h Vol: <span>$79,584,731,231</span>
-          </p>
-          <p>
-            Dominance: <span>BTC 37.4%</span>
-          </p>
-        </div>
+      <div className="header__topCoinatier">
+        <div className="header__top">
+          <div className="header__top__left">
+            <p>
+              Coins: <span>12915</span>
+            </p>
+            <p>
+              Exchanges: <span>573</span>
+            </p>
+            <p>
+              Market Cap: <span>$1,090,713,809,194</span>
+            </p>
+            <p>
+              24h Vol: <span>$79,584,731,231</span>
+            </p>
+            <p>
+              Dominance: <span>BTC 37.4%</span>
+            </p>
+          </div>
 
-        <div className="header__top__right">
-          <button className={theme.isDarkMode ? "darkTopBtn" : ""}>EN</button>
-          <button className={theme.isDarkMode ? "darkTopBtn" : ""}>USD</button>
-          {theme.isDarkMode ? (
-            <WbSunnyIcon onClick={() => theme.toggleTheme?.()} />
-          ) : (
-            <BedtimeIcon onClick={() => theme.toggleTheme?.()} />
-          )}
-          <button className="sub_btn">Subscribe</button>
+          <div className="header__top__right">
+            <button className={theme.isDarkMode ? "darkTopBtn" : ""}>EN</button>
+            <button className={theme.isDarkMode ? "darkTopBtn" : ""}>
+              USD
+            </button>
+            {theme.isDarkMode ? (
+              <WbSunnyIcon onClick={() => theme.toggleTheme?.()} />
+            ) : (
+              <BedtimeIcon onClick={() => theme.toggleTheme?.()} />
+            )}
+            <button className="sub_btn">Subscribe</button>
+          </div>
         </div>
       </div>
 
@@ -66,9 +71,12 @@ const Header = () => {
         </div>
 
         <div className="header__bottom__BtnsR">
+          <img src="https://static.coingecko.com/s/candy_notification_web-a560ca6de9e0daaeb05eb6fe3dae7062684f63249dbf371568e7b062a3456e3e.png" />
           <p>Portfolio</p>
-          <p>US</p>
+          <p>Login</p>
+          <button>Sign Up</button>
           <div>
+            <SearchIcon />
             <p>Search</p>
           </div>
         </div>

@@ -17,15 +17,16 @@ export interface ITrendingCoinData {
   item: {
     coin_id: number;
     id: string;
-    large: string;
-    market_cap_rank: number;
-    name: string;
+    large?: string;
+    market_cap_rank?: number;
+    name?: string;
     price_btc: number;
-    score: number;
-    slug: string;
+    score?: number;
+    slug?: string;
     small: string;
-    symbol: string;
-    thumb: string;
+    symbol?: string;
+    thumb?: string;
+    btnName?: string;
   };
 }
 
@@ -120,6 +121,7 @@ export interface INewsData {
     id: string;
     name: string;
   };
+  url?: string;
 }
 
 export interface IProps {
@@ -127,6 +129,7 @@ export interface IProps {
   coinInfo?: ICoinSpecificData;
   coinName?: string;
   trendingCoins?: ITrendingCoinData[];
+  allCoinsArr?: IAllCoinsdata[];
 }
 
 export interface ICoinGeckoService {

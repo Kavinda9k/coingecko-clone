@@ -1,7 +1,16 @@
 import { IProps } from "../../../types/coinGecko.interface";
 import Calculator from "./Calculator";
 
-const CurrenyConverter = ({ coinInfo }: IProps) => {
+const CurrenyConverter = ({ coinInfo, allCoinsArr }: IProps) => {
+  const top5Coins = allCoinsArr?.slice(0, 6);
+
+  const renderTopCoins = top5Coins?.map((coin) => (
+    <div>
+      <img src={coin.image} />
+      <p>{coin.name}</p>
+    </div>
+  ));
+
   return (
     <div className="coinInfo__chart_containerR">
       <Calculator coinInfo={coinInfo} />
@@ -9,7 +18,7 @@ const CurrenyConverter = ({ coinInfo }: IProps) => {
       <div className="coinInfo__chart_containerR__PriceStatistics">
         <h2>{coinInfo?.symbol.toLocaleUpperCase()} Price Statistics</h2>
         <p>{coinInfo?.symbol.toLocaleUpperCase()} Price Today</p>
-        <div>
+        <div className="coinInfo__chart_containerR__stats__container">
           <div>
             <p>{coinInfo?.name} Price</p>
             <p className="coinInfo__chart_containerR__Bold">
@@ -70,6 +79,12 @@ const CurrenyConverter = ({ coinInfo }: IProps) => {
               {coinInfo?.market_data.total_volume.usd.toLocaleString("en-US")}
             </p>
           </div>
+        </div>
+
+        <div className="topCoins">
+          <h4>TOP COINS BY MARKET CAP</h4>
+          {renderTopCoins}
+          <a>Compare with other coins</a>
         </div>
       </div>
     </div>

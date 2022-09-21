@@ -20,7 +20,7 @@ const Table = () => {
             >
               <StarBorderRoundedIcon />
             </div>
-            {coin.rank}
+            {coin.market_cap_rank}
           </div>
         </td>
         <td className="coin__name">
@@ -66,7 +66,11 @@ const Table = () => {
           )}
         </td>
         <td>{coin.total_volume}</td>
-        <td>{coin.market_cap}</td>
+        <td>
+          <img
+            src={`https://www.coingecko.com/coins/${coin.market_cap_rank}/sparkline`}
+          />
+        </td>
       </tr>
     );
   });
@@ -85,7 +89,7 @@ const Table = () => {
             <th>24h</th>
             <th>7d</th>
             <th>Supply</th>
-            <th>Mkt Cap</th>
+            <th>Last 7 days</th>
           </tr>
           {renderTable}
         </table>

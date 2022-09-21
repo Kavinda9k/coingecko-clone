@@ -19,11 +19,13 @@ import MarketTable from "./components/MarketTable";
 const CoinInfoPage = () => {
   const [count, setCount] = useState(0);
   const { id } = useParams();
-  const coins = useAllCoinGeckoData();
+  const allCoins = useAllCoinGeckoData();
+
+  const [selectedBtns, setSelectedBtns] = useState("general");
 
   useEffect(() => {
     if (typeof id === "string") {
-      coins?.getCoinSpecificCoinData(id);
+      allCoins?.getCoinSpecificCoinData(id);
       setTimeout(() => {
         setCount((prev) => prev + 1);
       }, 1000);
@@ -31,7 +33,7 @@ const CoinInfoPage = () => {
   }, [id]);
 
   useEffect(() => {
-    setCoinSpecificData(coins?.coinSpecificData);
+    setCoinSpecificData(allCoins?.coinSpecificData);
     console.log("render");
   }, [count]);
 
@@ -62,11 +64,56 @@ const CoinInfoPage = () => {
       </div>
 
       <div className="coinInfo__chart_container__btns">
-        <button>General</button>
-        <button>Social</button>
-        <button>Developer</button>
-        <button>Widgets</button>
-        <button>Analysis</button>
+        <button
+          className={
+            selectedBtns === "general"
+              ? "coinInfo__chart_container__btnsSelected"
+              : ""
+          }
+          onClick={() => setSelectedBtns("general")}
+        >
+          General
+        </button>
+        <button
+          className={
+            selectedBtns === "social"
+              ? "coinInfo__chart_container__btnsSelected"
+              : ""
+          }
+          onClick={() => setSelectedBtns("social")}
+        >
+          Social
+        </button>
+        <button
+          className={
+            selectedBtns === "developer"
+              ? "coinInfo__chart_container__btnsSelected"
+              : ""
+          }
+          onClick={() => setSelectedBtns("developer")}
+        >
+          Developer
+        </button>
+        <button
+          className={
+            selectedBtns === "widgets"
+              ? "coinInfo__chart_container__btnsSelected"
+              : ""
+          }
+          onClick={() => setSelectedBtns("widgets")}
+        >
+          Widgets
+        </button>
+        <button
+          className={
+            selectedBtns === "analysis"
+              ? "coinInfo__chart_container__btnsSelected"
+              : ""
+          }
+          onClick={() => setSelectedBtns("analysis")}
+        >
+          Analysis
+        </button>
       </div>
 
       <div className="coinInfo__chart_container">
@@ -75,7 +122,10 @@ const CoinInfoPage = () => {
         ) : (
           <div></div>
         )}
-        <CurrenyConverter coinInfo={coinSpecificData} />
+        <CurrenyConverter
+          coinInfo={coinSpecificData}
+          allCoinsArr={allCoins?.allCoinsData}
+        />
       </div>
 
       <div className="coinInfo__DescriptionContainer">
@@ -91,7 +141,7 @@ const CoinInfoPage = () => {
       </div>
 
       <div className="coinInfo__trendingCoinsContainer">
-        <TrendingCoinsContainer trendingCoins={coins?.trendingCoins} />
+        <TrendingCoinsContainer trendingCoins={allCoins?.trendingCoins} />
       </div>
     </div>
   );

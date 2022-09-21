@@ -5,6 +5,12 @@ import CoinInfoVotes from "./CoinInfoVotes";
 
 const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
   const [chartData, setChartData] = useState<IChartCoinDataXY[]>([[0, 0]]);
+  const [isSelected, setIsSelected] = useState({
+    price: true,
+    marketCap: false,
+    tradingView: false,
+    TFhour: true,
+  });
 
   const getChartData = async (coinName: string) => {
     const response = await fetch(
@@ -29,13 +35,63 @@ const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
       <h5>Last updated 07:41AM UTC. Currency in USD.</h5>
       <div className="coinInfo__chart_graphBtns">
         <div>
-          <button>Price</button>
-          <button>Market Cap</button>
-          <button>Trading View</button>
+          <button
+            className={
+              isSelected.price ? "coinInfo__chart_graphBtns__selected" : ""
+            }
+            onClick={() => {
+              setIsSelected((prev) => ({
+                ...prev,
+                marketCap: false,
+                price: !prev.price,
+                tradingView: false,
+              }));
+            }}
+          >
+            Price
+          </button>
+          <button
+            className={
+              isSelected.marketCap ? "coinInfo__chart_graphBtns__selected" : ""
+            }
+            onClick={() => {
+              setIsSelected((prev) => ({
+                ...prev,
+                marketCap: !prev.marketCap,
+                price: false,
+                tradingView: false,
+              }));
+            }}
+          >
+            Market Cap
+          </button>
+          <button
+            className={
+              isSelected.tradingView
+                ? "coinInfo__chart_graphBtns__selected"
+                : ""
+            }
+            onClick={() => {
+              setIsSelected((prev) => ({
+                ...prev,
+                marketCap: false,
+                price: false,
+                tradingView: !prev.tradingView,
+              }));
+            }}
+          >
+            Trading View
+          </button>
         </div>
 
         <div>
-          <button>24h</button>
+          <button
+            className={
+              isSelected.TFhour ? "coinInfo__chart_graphBtns__selected" : ""
+            }
+          >
+            24h
+          </button>
           <button>7h</button>
           <button>14d</button>
           <button>90d</button>

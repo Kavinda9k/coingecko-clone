@@ -1,5 +1,5 @@
 * {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Quicksand", "Roboto", sans-serif;
 }
 body {
   margin: 0;
@@ -14,9 +14,8 @@ code {
 }
 
 p {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  color: rgb(80, 80, 80);
 }
 
 a {

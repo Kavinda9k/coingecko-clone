@@ -7,7 +7,7 @@ table {
 td,
 th {
   text-align: left;
-  padding: 13px 20px;
+  padding: 3px 20px;
   border-bottom: 1px solid rgb(228, 228, 228);
   font-size: 14px;
   font-weight: 400;
@@ -15,6 +15,7 @@ th {
 
 th {
   font-weight: 700;
+  padding: 13px 20px;
   border-top: 1px solid rgb(228, 228, 228);
 }
 
