@@ -4,7 +4,6 @@ const CoinInfoVotes = () => {
   const [finshedVoting, setFinishedVoting] = React.useState(false);
   const [vote, setVote] = React.useState("");
 
-  console.log(finshedVoting);
   return (
     <>
       {!finshedVoting ? (

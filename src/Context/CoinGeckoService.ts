@@ -37,6 +37,14 @@ class CoinGeckoService implements ICoinGeckoService {
     const reponseJSON = await response.json();
     return reponseJSON;
   };
+
+  getGlobalCoinData = async () => {
+    const response = await fetch(`https://api.coingecko.com/api/v3/global`);
+    const responseJson = await response.json();
+    return responseJson;
+
+    throw new Error("Method not implemented.");
+  };
 }
 
 export default new CoinGeckoService();

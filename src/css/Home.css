@@ -53,6 +53,38 @@
   font-size: 12px;
 }
 
+.marketStats__cards {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.marketStats__cards > div {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 21%;
+  border-radius: 5px;
+  padding: 15px;
+  border-left: 7px solid #8cc63f;
+}
+
+.marketStats__cards > .greyCard {
+  border-left: 7px solid grey;
+}
+
+.marketStats__cards > div > h3 {
+  font-weight: 600;
+}
+
+.marketStats__cards > div > p {
+  color: grey;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.main__heading__switch > .MuiSwitch-thumb {
+  color: "#33cf4d";
+}
+
 @media only screen and (max-width: 700px) {
   .main__Container {
     width: 100vw;

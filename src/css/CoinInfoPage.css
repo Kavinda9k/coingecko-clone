@@ -385,7 +385,7 @@ progress::-webkit-progress-value {
   justify-content: space-between;
   margin-bottom: 5px;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.651);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.205);
   font-size: 13px;
 }
 
@@ -576,6 +576,24 @@ tr:last-of-type td:last-of-type {
 .topCoins > div > img {
   height: 20px;
   margin-right: 10px;
+}
+
+.ath_atl_container {
+  text-align: right;
+}
+
+.ath_atl_container > .coinInfo__chart_containerR__Bold > span {
+  color: #e94645;
+  margin-left: 5px;
+}
+
+.atl_ath_date {
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.ath_atl_container > .coinInfo__chart_containerR__Bold > .ath_percentage {
+  color: green;
 }
 
 @media only screen and (max-width: 1250px) {

@@ -1,5 +1,5 @@
 import { IProps } from "../../../types/coinGecko.interface";
-import "../../../css/MarketTable.css";
+import "../../../css/TradingMarketsTable.css";
 
 const MarketTable = ({ coinInfo }: IProps) => {
   const top5MarketData = coinInfo?.tickers.slice(0, 6);
@@ -21,7 +21,13 @@ const MarketTable = ({ coinInfo }: IProps) => {
           <td>${data.converted_volume.usd}</td>
           <td>{data.volume.toLocaleString("en-US")}%</td>
           <td>Recently</td>
-          <td>{data.trust_score}</td>
+          <td>
+            <div>
+              <div
+                className={data.trust_score === "green" ? "greenBtn" : "redBtn"}
+              ></div>
+            </div>
+          </td>
         </tr>
       );
     });

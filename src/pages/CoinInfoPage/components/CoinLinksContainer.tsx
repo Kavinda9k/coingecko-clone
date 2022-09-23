@@ -5,7 +5,6 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 const CoinLinksContainer = ({ coinInfo }: IProps) => {
   const linksArr = coinInfo?.links && Object.keys(coinInfo?.links);
   const valuesArr = coinInfo?.links && Object.values(coinInfo?.links);
-  console.log(coinInfo?.links);
 
   const arr = [
     "Websites",

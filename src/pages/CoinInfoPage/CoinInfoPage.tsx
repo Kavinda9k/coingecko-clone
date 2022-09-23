@@ -14,7 +14,7 @@ import NewsContainer from "./components/NewsContainer";
 
 import { useAllCoinGeckoData } from "../../Context/CoinGeckoApiDataProvider";
 import CoinDescription from "./components/CoinDescription";
-import MarketTable from "./components/MarketTable";
+import MarketTable from "./components/TradingMarketsTable";
 
 const CoinInfoPage = () => {
   const [count, setCount] = useState(0);

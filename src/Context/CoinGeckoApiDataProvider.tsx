@@ -6,6 +6,7 @@ import {
   IChartCoinDataXY,
   ICoinSpecificData,
   IProps,
+  IGlobalCoinData,
 } from "../types/coinGecko.interface";
 import CoinGeckoService from "./CoinGeckoService";
 
@@ -15,6 +16,7 @@ interface allCoinGeckoData {
   chartData: IChartCoinDataXY[];
   coinSpecificData: ICoinSpecificData | undefined;
   getCoinSpecificCoinData: (name: string) => void;
+  getGlobalCoinData: IGlobalCoinData | undefined;
 }
 
 const CoinGeckoDataContext = createContext<allCoinGeckoData | null>(null);
@@ -24,6 +26,7 @@ export const useAllCoinGeckoData = () => {
 };
 
 const CoinGeckoApiDataProvider = ({ children }: IProps) => {
+  const [getGlobalCoinData, setGlobalCoinData] = useState<IGlobalCoinData>();
   const [trendingCoins, setTrendingCoins] = useState<ITrendingCoinData[]>([]);
   const [allCoinsData, setAllCoinsData] = useState<IAllCoinsdata[]>([]);
   const [chartData, setChartData] = useState<IChartCoinDataXY[]>([]);
@@ -43,6 +46,12 @@ const CoinGeckoApiDataProvider = ({ children }: IProps) => {
     CoinGeckoApiData.getAllCoinsdata()
       .then((value) => {
         setAllCoinsData(value);
+      })
+      .catch((err) => console.log(err));
+
+    CoinGeckoApiData.getGlobalCoinData()
+      .then((value) => {
+        setGlobalCoinData(value);
       })
       .catch((err) => console.log(err));
 
@@ -67,6 +76,7 @@ const CoinGeckoApiDataProvider = ({ children }: IProps) => {
         chartData,
         coinSpecificData,
         getCoinSpecificCoinData,
+        getGlobalCoinData,
       }}
     >
       {children}

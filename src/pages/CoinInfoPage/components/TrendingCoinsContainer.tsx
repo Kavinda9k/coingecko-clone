@@ -39,7 +39,6 @@ const TrendingCoinsContainer = ({ trendingCoins }: IProps) => {
   ];
 
   const allArr = trendingCoins?.concat(arrWithNewButtons);
-  console.log(allArr);
 
   const renderCards =
     allArr &&

@@ -60,6 +60,24 @@ export interface ICoinSpecificData {
     circulating_supply?: number;
     market_cap_change_24h?: number;
     liquidity_score?: number;
+    atl?: {
+      usd: number;
+    };
+    atl_date?: {
+      usd: string;
+    };
+    atl_change_percentage?: {
+      usd: number;
+    };
+    ath?: {
+      usd: number;
+    };
+    ath_date?: {
+      usd: string;
+    };
+    ath_change_percentage?: {
+      usd: number;
+    };
   };
   categories?: string[];
   links?: {
@@ -132,9 +150,26 @@ export interface IProps {
   allCoinsArr?: IAllCoinsdata[];
 }
 
+export interface IGlobalCoinData {
+  data?: {
+    active_cryptocurrencies: number;
+    markets: number;
+    total_market_cap: {
+      usd: number;
+    };
+    total_volume: {
+      usd: number;
+    };
+    market_cap_percentage: {
+      btc: number;
+    };
+  };
+}
+
 export interface ICoinGeckoService {
   getAllCoinsdata(): Promise<IAllCoinsdata[]>;
   getTrendingCoins(): Promise<ITrendingCoinData[]>;
   getChartData(name: string): Promise<IChartCoinDataXY[]>;
   getCoinSpecificData(name?: string): Promise<ICoinSpecificData>;
+  getGlobalCoinData(): Promise<IGlobalCoinData>;
 }

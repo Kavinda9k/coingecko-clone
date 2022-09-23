@@ -37,7 +37,7 @@
   text-align: left;
   padding: 10px;
   border-bottom: 1px solid rgb(228, 228, 228);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
 }
 
@@ -61,6 +61,26 @@
 
 .marketTable__blue {
   color: rgba(31, 152, 252, 0.897);
+}
+
+.greenBtn {
+  height: 15px;
+  width: 15px;
+  background-color: green;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.redBtn {
+  height: 15px;
+  width: 15px;
+  background-color: red;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+td:nth-child(3) {
+  width: 20%;
 }
 
 @media only screen and (max-width: 700px) {

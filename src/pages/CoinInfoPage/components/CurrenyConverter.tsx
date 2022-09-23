@@ -2,8 +2,17 @@ import { IProps } from "../../../types/coinGecko.interface";
 import Calculator from "./Calculator";
 
 const CurrenyConverter = ({ coinInfo, allCoinsArr }: IProps) => {
-  const top5Coins = allCoinsArr?.slice(0, 6);
+  let athDate = coinInfo?.market_data.ath_date?.usd;
+  let athDateFormatted = new Date(
+    athDate ? athDate : "2021-11-10T14:24:11.849Z"
+  );
 
+  let atlDate = coinInfo?.market_data.atl_date?.usd;
+  let atlDateFormatted = new Date(
+    atlDate ? atlDate : "2021-11-10T14:24:11.849Z"
+  );
+
+  const top5Coins = allCoinsArr?.slice(0, 6);
   const renderTopCoins = top5Coins?.map((coin) => (
     <div>
       <img src={coin.image} />
@@ -78,6 +87,38 @@ const CurrenyConverter = ({ coinInfo, allCoinsArr }: IProps) => {
             <p className="coinInfo__chart_containerR__Bold">
               {coinInfo?.market_data.total_volume.usd.toLocaleString("en-US")}
             </p>
+          </div>
+
+          <div>
+            <p>All-Time High </p>
+            <div className="ath_atl_container">
+              <p className="coinInfo__chart_containerR__Bold">
+                ${coinInfo?.market_data.ath?.usd.toLocaleString("en-US")}
+                <span>
+                  {" "}
+                  {coinInfo?.market_data.ath_change_percentage?.usd.toFixed(1)}%
+                </span>
+              </p>
+              <p className="atl_ath_date">
+                {atlDateFormatted.toLocaleDateString("en-US")}
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <p>All-Time Low </p>
+            <div className="ath_atl_container">
+              <p className="coinInfo__chart_containerR__Bold">
+                ${coinInfo?.market_data.atl?.usd.toLocaleString("en-US")}
+                <span className="ath_percentage">
+                  {" "}
+                  {coinInfo?.market_data.atl_change_percentage?.usd.toFixed(1)}%
+                </span>
+              </p>
+              <p className="atl_ath_date">
+                {athDateFormatted.toLocaleDateString("en-US")}
+              </p>
+            </div>
           </div>
         </div>
 
