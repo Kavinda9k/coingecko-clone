@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react";
-import CoinPriceChart from "./CoinPriceChart";
 import { IProps, IChartCoinDataXY } from "../../../types/coinGecko.interface";
 import CoinInfoVotes from "./CoinInfoVotes";
+import PriceChart from "./PriceChart";
+
+interface IBtnProps {
+  name: string;
+}
 
 const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
   const [chartData, setChartData] = useState<IChartCoinDataXY[]>([[0, 0]]);
-  const [isSelected, setIsSelected] = useState({
-    price: true,
-    marketCap: false,
-    tradingView: false,
-    TFhour: true,
-  });
+  const [timeframe, setTimeFrame] = useState(91);
+  const [chartTimeBtn, setChartTimeBtn] = useState("24h");
+  const [chartCategoryBtn, setChartCategoryBtn] = useState("Price");
+
+  const priceData = coinInfo?.market_data;
 
   const getChartData = async (coinName: string) => {
     const response = await fetch(
-      `https://api.coingecko.com/api/v3/coins/${coinName}/market_chart?vs_currency=usd&days=91`
+      `https://api.coingecko.com/api/v3/coins/${coinName}/market_chart?vs_currency=usd&days=${timeframe}`
     );
 
     const responseJson = await response.json();
@@ -25,7 +28,40 @@ const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
 
   useEffect(() => {
     typeof coinName === "string" && getChartData(coinName);
-  }, []);
+  }, [timeframe]);
+
+  const RenderChartCategoryBtn = ({ name }: IBtnProps) => {
+    return (
+      <button
+        className={
+          chartCategoryBtn === name ? "coinInfo__chart_graphBtns__selected" : ""
+        }
+        onClick={() => {
+          setChartCategoryBtn(name);
+        }}
+      >
+        {name}
+      </button>
+    );
+  };
+
+  const RenderChartTimeBtn = ({ name }: IBtnProps) => {
+    return (
+      <button
+        onClick={() => {
+          setChartTimeBtn(`${name}d`);
+          setTimeFrame(name === "24" ? 1 : Number(name));
+        }}
+        className={
+          chartTimeBtn === `${name}d` || chartTimeBtn === `${name}h`
+            ? "coinInfo__chart_graphBtns__selected"
+            : ""
+        }
+      >
+        {name === "24" ? `${name}h` : `${name}d`}
+      </button>
+    );
+  };
 
   return (
     <div className="coinInfo__chart_containerL">
@@ -35,72 +71,24 @@ const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
       <h5>Last updated 07:41AM UTC. Currency in USD.</h5>
       <div className="coinInfo__chart_graphBtns">
         <div>
-          <button
-            className={
-              isSelected.price ? "coinInfo__chart_graphBtns__selected" : ""
-            }
-            onClick={() => {
-              setIsSelected((prev) => ({
-                ...prev,
-                marketCap: false,
-                price: !prev.price,
-                tradingView: false,
-              }));
-            }}
-          >
-            Price
-          </button>
-          <button
-            className={
-              isSelected.marketCap ? "coinInfo__chart_graphBtns__selected" : ""
-            }
-            onClick={() => {
-              setIsSelected((prev) => ({
-                ...prev,
-                marketCap: !prev.marketCap,
-                price: false,
-                tradingView: false,
-              }));
-            }}
-          >
-            Market Cap
-          </button>
-          <button
-            className={
-              isSelected.tradingView
-                ? "coinInfo__chart_graphBtns__selected"
-                : ""
-            }
-            onClick={() => {
-              setIsSelected((prev) => ({
-                ...prev,
-                marketCap: false,
-                price: false,
-                tradingView: !prev.tradingView,
-              }));
-            }}
-          >
-            Trading View
-          </button>
+          <RenderChartCategoryBtn name="Price" />
+          <RenderChartCategoryBtn name="Market Cap" />
+          <RenderChartCategoryBtn name="Trading View" />
         </div>
 
         <div>
-          <button
-            className={
-              isSelected.TFhour ? "coinInfo__chart_graphBtns__selected" : ""
-            }
-          >
-            24h
-          </button>
-          <button>7h</button>
-          <button>14d</button>
-          <button>90d</button>
-          <button>1y</button>
-          <button>Max</button>
+          <RenderChartTimeBtn name="24" />
+          <RenderChartTimeBtn name="7" />
+          <RenderChartTimeBtn name="14" />
+          <RenderChartTimeBtn name="30" />
+          <RenderChartTimeBtn name="90" />
+          <RenderChartTimeBtn name="180" />
+          <RenderChartTimeBtn name="365" />
         </div>
       </div>
       <div className="coinInfo__chart_graph">
-        <CoinPriceChart priceData={chartData} />
+        {/* <CoinPriceChart priceData={chartData} /> */}
+        <PriceChart priceData={chartData} />
       </div>
 
       <div className="pricePercentageChanged__container">
@@ -114,12 +102,31 @@ const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
             <th>1y</th>
           </tr>
           <tr>
-            <td>-0.1%</td>
-            <td>2.7%</td>
-            <td>-13.5%</td>
-            <td>-2.4%</td>
-            <td>-8.8%</td>
-            <td>-59.2%</td>
+            <td>
+              {priceData?.price_change_percentage_1h_in_currency.usd.toFixed(2)}
+              %
+            </td>
+            <td>{priceData?.price_change_percentage_24h.toFixed(2)}%</td>
+            <td>
+              {priceData?.price_change_percentage_7d_in_currency.usd.toFixed(2)}
+              %
+            </td>
+            <td>
+              {priceData?.price_change_percentage_14d_in_currency.usd.toFixed(
+                2
+              )}
+              %
+            </td>
+            <td>
+              {priceData?.price_change_percentage_30d_in_currency.usd.toFixed(
+                2
+              )}
+              %
+            </td>
+            <td>
+              {priceData?.price_change_percentage_1y_in_currency.usd.toFixed(2)}
+              %
+            </td>
           </tr>
         </table>
       </div>

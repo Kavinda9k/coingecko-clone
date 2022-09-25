@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../../css/CoinInfoPage.css";
 
@@ -22,6 +22,7 @@ const CoinInfoPage = () => {
   const allCoins = useAllCoinGeckoData();
 
   const [selectedBtns, setSelectedBtns] = useState("general");
+  const [coinSpecificData, setCoinSpecificData] = useState<ICoinSpecificData>();
 
   useEffect(() => {
     if (typeof id === "string") {
@@ -36,8 +37,6 @@ const CoinInfoPage = () => {
     setCoinSpecificData(allCoins?.coinSpecificData);
     console.log("render");
   }, [count]);
-
-  const [coinSpecificData, setCoinSpecificData] = useState<ICoinSpecificData>();
 
   return (
     <div className="coinInfo__container__main">

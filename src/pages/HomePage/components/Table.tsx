@@ -9,10 +9,14 @@ const Table = () => {
   const allCoins = useAllCoinGeckoData();
   const theme = useTheme();
 
-  console.log("render");
   const renderTable = allCoins?.allCoinsData.map((coin) => {
     return (
-      <tr key={coin.id} onClick={() => navigate(`/coin/${coin.id}`)}>
+      <tr
+        key={coin.id}
+        onClick={() => {
+          navigate(`/coin/${coin.id}`);
+        }}
+      >
         <td className="coin__id">
           <div>
             <div

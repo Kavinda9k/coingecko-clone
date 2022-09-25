@@ -78,6 +78,27 @@ export interface ICoinSpecificData {
     ath_change_percentage?: {
       usd: number;
     };
+    price_change_percentage_1h_in_currency: {
+      usd: number;
+    };
+    price_change_24h_in_currency: {
+      usd: number;
+    };
+    price_change_percentage_7d_in_currency: {
+      usd: number;
+    };
+    price_change_percentage_14d_in_currency: {
+      usd: number;
+    };
+    price_change_percentage_30d_in_currency: {
+      usd: number;
+    };
+    price_change_percentage_60d_in_currency: {
+      usd: number;
+    };
+    price_change_percentage_1y_in_currency: {
+      usd: number;
+    };
   };
   categories?: string[];
   links?: {

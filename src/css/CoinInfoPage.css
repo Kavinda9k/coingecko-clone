@@ -298,6 +298,10 @@ progress::-webkit-progress-value {
   margin-bottom: 10px;
 }
 
+.coinInfo__chart_graph {
+  width: 97%;
+}
+
 .coinInfo__chart_graphBtns {
   margin: 10px 0;
   display: flex;
