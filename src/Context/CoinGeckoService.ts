@@ -11,6 +11,16 @@ class CoinGeckoService implements ICoinGeckoService {
     throw new Error("Method not implemented.");
   };
 
+  getCoinEcosytemData = async () => {
+    const response = await fetch(
+      `https://api.coingecko.com/api/v3/coins/categories/list`
+    );
+    const responseJson = await response.json();
+    return responseJson;
+
+    throw new Error("Method not implemented.");
+  };
+
   getTrendingCoins = async () => {
     const response = await fetch(
       `https://api.coingecko.com/api/v3/search/trending`

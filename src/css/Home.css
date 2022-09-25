@@ -85,6 +85,19 @@
   color: "#33cf4d";
 }
 
+.coinInfo__DescriptionContainer > div {
+  margin-top: 40px;
+}
+
+.coinInfo__DescriptionContainer > div > h2 {
+  margin-bottom: 10px;
+}
+
+.coinInfo__DescriptionContainer > div > ul {
+  font-size: 13px;
+  margin: 15px;
+}
+
 @media only screen and (max-width: 700px) {
   .main__Container {
     width: 100vw;

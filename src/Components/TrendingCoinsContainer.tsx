@@ -1,8 +1,8 @@
-import "../../../css/TrendingCoins.css";
-import "../../../css/CoinInfoPage.css";
-import { ITrendingCoinData } from "../../../types/coinGecko.interface";
+import "../css/TrendingCoins.css";
+import "../css/CoinInfoPage.css";
+import { ITrendingCoinData } from "../types/coinGecko.interface";
 
-import { IProps } from "../../../types/coinGecko.interface";
+import { IProps } from "../types/coinGecko.interface";
 
 const TrendingCoinsContainer = ({ trendingCoins }: IProps) => {
   const arrWithNewButtons: ITrendingCoinData[] = [

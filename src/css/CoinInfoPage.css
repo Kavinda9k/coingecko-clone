@@ -24,6 +24,35 @@
   padding: 20px 0;
 }
 
+.coinLinks__container {
+  flex: 0.3;
+}
+
+.coinInfo__stats_containeR_btns {
+  display: flex;
+  align-self: center;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.coinInfo__stats_containeR_btns > button {
+  padding: 1px 10px;
+  background-color: #8cc63f;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.coinInfo__stats_containeR_btns > button > span > * {
+  translate: 0 10%;
+  height: 20px;
+}
+
 .coinInfo__stats_containerL {
   margin-right: 20px;
 }
@@ -188,7 +217,7 @@ progress::-webkit-progress-value {
 }
 
 .coinInfo__stats_containeR_InfoRow > p {
-  width: 25%;
+  width: 30%;
   font-size: 14px;
   font-weight: 600;
 }

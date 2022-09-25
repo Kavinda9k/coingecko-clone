@@ -12,7 +12,7 @@ const Table = () => {
   console.log("render");
   const renderTable = allCoins?.allCoinsData.map((coin) => {
     return (
-      <tr onClick={() => navigate(`/coin/${coin.id}`)}>
+      <tr key={coin.id} onClick={() => navigate(`/coin/${coin.id}`)}>
         <td className="coin__id">
           <div>
             <div
@@ -66,11 +66,11 @@ const Table = () => {
           )}
         </td>
         <td>{coin.total_volume}</td>
-        <td>
+        {/* <td>
           <img
             src={`https://www.coingecko.com/coins/${coin.market_cap_rank}/sparkline`}
           />
-        </td>
+        </td> */}
       </tr>
     );
   });
@@ -89,7 +89,7 @@ const Table = () => {
             <th>24h</th>
             <th>7d</th>
             <th>Supply</th>
-            <th>Last 7 days</th>
+            {/* <th>Last 7 days</th> */}
           </tr>
           {renderTable}
         </table>

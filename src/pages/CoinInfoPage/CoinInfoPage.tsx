@@ -9,7 +9,7 @@ import CoinStatsContainer from "./components/CoinStatsContainer";
 import CoinLinksContainer from "./components/CoinLinksContainer";
 import PriceChartContainer from "./components/PriceChartContainer";
 import CurrenyConverter from "./components/CurrenyConverter";
-import TrendingCoinsContainer from "./components/TrendingCoinsContainer";
+import TrendingCoinsContainer from "../../Components/TrendingCoinsContainer";
 import NewsContainer from "./components/NewsContainer";
 
 import { useAllCoinGeckoData } from "../../Context/CoinGeckoApiDataProvider";
@@ -51,6 +51,7 @@ const CoinInfoPage = () => {
 
         <div className="coinInfo__stats_container">
           <CoinStatsContainer coinInfo={coinSpecificData} />
+          {/* <CoinLinksContainer coinInfo={coinSpecificData} /> */}
           <CoinLinksContainer coinInfo={coinSpecificData} />
         </div>
       </div>

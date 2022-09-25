@@ -142,14 +142,6 @@ export interface INewsData {
   url?: string;
 }
 
-export interface IProps {
-  children?: React.ReactNode;
-  coinInfo?: ICoinSpecificData;
-  coinName?: string;
-  trendingCoins?: ITrendingCoinData[];
-  allCoinsArr?: IAllCoinsdata[];
-}
-
 export interface IGlobalCoinData {
   data?: {
     active_cryptocurrencies: number;
@@ -166,10 +158,25 @@ export interface IGlobalCoinData {
   };
 }
 
+export interface ICoinEcosytems {
+  category_id: string;
+  name: string;
+}
+
 export interface ICoinGeckoService {
   getAllCoinsdata(): Promise<IAllCoinsdata[]>;
   getTrendingCoins(): Promise<ITrendingCoinData[]>;
   getChartData(name: string): Promise<IChartCoinDataXY[]>;
   getCoinSpecificData(name?: string): Promise<ICoinSpecificData>;
   getGlobalCoinData(): Promise<IGlobalCoinData>;
+  getCoinEcosytemData(): Promise<ICoinEcosytems[]>;
+}
+
+export interface IProps {
+  children?: React.ReactNode;
+  coinInfo?: ICoinSpecificData;
+  coinName?: string;
+  trendingCoins?: ITrendingCoinData[];
+  allCoinsArr?: IAllCoinsdata[];
+  coinEcosystems?: ICoinEcosytems[];
 }
