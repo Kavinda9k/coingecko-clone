@@ -253,6 +253,11 @@ progress::-webkit-progress-value {
   color: rgba(128, 128, 128, 0.658);
 }
 
+.coinInfo__mainBtns_container > .mainBtnSelected {
+  border-bottom: 4px solid #8cc63f;
+  color: rgba(0, 0, 0, 0.76);
+}
+
 .coinInfo__mainBtns_container > p:hover {
   border-bottom: 4px solid #8cc63f;
   color: rgba(0, 0, 0, 0.76);
@@ -627,6 +632,10 @@ tr:last-of-type td:last-of-type {
 
 .ath_atl_container > .coinInfo__chart_containerR__Bold > .ath_percentage {
   color: green;
+}
+
+.converterSection__container {
+  margin: 20px 0;
 }
 
 @media only screen and (max-width: 1250px) {

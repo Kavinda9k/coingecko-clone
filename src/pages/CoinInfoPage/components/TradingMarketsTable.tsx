@@ -1,12 +1,18 @@
 import { IProps } from "../../../types/coinGecko.interface";
 import "../../../css/TradingMarketsTable.css";
 
-const MarketTable = ({ coinInfo }: IProps) => {
-  const top5MarketData = coinInfo?.tickers.slice(0, 6);
+const MarketTable = ({ coinInfo, marketTablesize }: IProps) => {
+  let marketData;
+
+  if (marketTablesize === "small") {
+    marketData = coinInfo?.tickers.slice(0, 6);
+  } else {
+    marketData = coinInfo?.tickers;
+  }
 
   const renderTableData =
-    top5MarketData &&
-    top5MarketData.map((data, i) => {
+    marketData &&
+    marketData.map((data, i) => {
       return (
         <tr>
           <td>{i}</td>
@@ -31,9 +37,10 @@ const MarketTable = ({ coinInfo }: IProps) => {
         </tr>
       );
     });
+
   return (
     <div className="marketTable__container">
-      <h1>Bitcoin Markets</h1>
+      <h1>{coinInfo?.name} Markets</h1>
       <p>
         <a>Affiliate disclosures</a>
       </p>

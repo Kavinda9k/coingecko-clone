@@ -39,23 +39,17 @@ export const options = {
       display: false,
     },
   },
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+  },
 };
 
-function createGradient(ctx: CanvasRenderingContext2D, area: ChartArea) {
-  const colorStart = "rgba(8,175,255,1)";
-  const colorMid = "rgba(94,214,63,0)";
-  const colorEnd = "rgba(0,212,255,1)";
-  const gradient = ctx.createLinearGradient(0, area.bottom, 0, area.top);
-
-  gradient.addColorStop(0, colorStart);
-  gradient.addColorStop(0.5, colorMid);
-  gradient.addColorStop(1, colorEnd);
-
-  return gradient;
-}
-
 function PriceChart({ priceData }: ICoinPriceHistory) {
-  const labels = priceData.map((data) => {
+  const labels = priceData.map((data, i) => {
     let myDate = new Date(data[0]);
     let mt2 = `${myDate.getFullYear()}/${myDate.getMonth()}/${myDate.getDate()}`;
     let newD = moment(mt2).format("MMMM d, YYYY");

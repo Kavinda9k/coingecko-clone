@@ -1,0 +1,41 @@
+.priceComparisonTables {
+  display: flex;
+  overflow-x: hidden;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.priceComparisonTables > div {
+  width: 48%;
+  text-align: center;
+}
+
+.priceComparisonTables > div > h2 {
+  margin-bottom: 15px;
+}
+
+.priceComparisonTables__tbale {
+  width: 100%;
+}
+
+.priceComparisonTables__tbale > tr > th {
+  text-align: center;
+  padding: 5px;
+}
+
+.priceComparisonTables__tbale > tr > * {
+  text-align: center;
+  padding: 10px;
+}
+
+.converterSection__description {
+  margin: 40px 0;
+}
+
+.converterSection__description > h3 {
+  margin-bottom: 10px;
+}
+.converterSection__description > p {
+  margin-bottom: 15px;
+  font-size: 14px;
+}

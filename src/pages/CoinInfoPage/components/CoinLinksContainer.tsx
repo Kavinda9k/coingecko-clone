@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { IProps } from "../../../types/coinGecko.interface";
+import { IProps, INameProp } from "../../../types/coinGecko.interface";
 import "../../../css/CoinInfoPage.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-
-interface INameProp {
-  name: string;
-}
 
 const CoinLinksContainer = ({ coinInfo }: IProps) => {
   const [selectedBtn, setSelectedBtn] = useState("");

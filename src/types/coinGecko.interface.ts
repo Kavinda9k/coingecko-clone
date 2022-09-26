@@ -193,6 +193,10 @@ export interface ICoinGeckoService {
   getCoinEcosytemData(): Promise<ICoinEcosytems[]>;
 }
 
+export interface INameProp {
+  name: string;
+}
+
 export interface IProps {
   children?: React.ReactNode;
   coinInfo?: ICoinSpecificData;
@@ -200,4 +204,5 @@ export interface IProps {
   trendingCoins?: ITrendingCoinData[];
   allCoinsArr?: IAllCoinsdata[];
   coinEcosystems?: ICoinEcosytems[];
+  marketTablesize?: string;
 }
