@@ -1,5 +1,8 @@
-import { IProps } from "../../../types/provider.interface";
-import "../../../css/CoinInfo.css";
+import { IProps } from "../../../types/coinGecko.interface";
+import "../../../css/CoinInfoPage.css";
+import CloudDoneOutlinedIcon from "@mui/icons-material/CloudDoneOutlined";
+import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
+import StarBorderPurple500OutlinedIcon from "@mui/icons-material/StarBorderPurple500Outlined";
 
 const CoinStatsContainer = ({ coinInfo }: IProps) => {
   return (
@@ -19,10 +22,30 @@ const CoinStatsContainer = ({ coinInfo }: IProps) => {
           <h4>{coinInfo?.market_data.price_change_percentage_24h}%</h4>
         </div>
         <p className="rank__Deci">1.000000 BTC</p>
-        <div>
-          <button>SH</button>
-          <button>BE</button>
-          <button>ST</button>
+        <div className="coinInfo__stats_containerL__Top__Btns">
+          <button>
+            <CloudDoneOutlinedIcon />
+          </button>
+          <button>
+            <NotificationsNoneOutlinedIcon />
+          </button>
+          <button>
+            <StarBorderPurple500OutlinedIcon />
+          </button>
+          <div>
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/arts-graphic-shapes/star-icon.png" />
+            1,141,047 people like this
+          </div>
+        </div>
+        <div className="coinInfo__stats_containerL__progressBar">
+          <progress value="77" max="100"></progress>
+          <div>
+            <p>${coinInfo?.market_data.low_24h?.usd.toLocaleString("en-US")}</p>
+            <p>24H Range</p>
+            <p>
+              ${coinInfo?.market_data.high_24h?.usd.toLocaleString("en-US")}
+            </p>
+          </div>
         </div>
       </div>
 

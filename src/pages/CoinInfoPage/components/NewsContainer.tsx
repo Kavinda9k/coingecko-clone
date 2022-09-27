@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { IProps, INewsData } from "../../../types/provider.interface";
+import { IProps, INewsData } from "../../../types/coinGecko.interface";
 import "../../../css/NewsRow.css";
-import "../../../css/CoinInfo.css";
+import "../../../css/CoinInfoPage.css";
 
 const NewsContainer = ({ coinName }: IProps) => {
   const [newsArticles, setNewsArticles] = useState<INewsData[]>([
@@ -9,10 +9,11 @@ const NewsContainer = ({ coinName }: IProps) => {
       title: "",
     },
   ]);
+  const [articleCount, setArticleCount] = useState(3);
 
   const getNews = async (coinName: string) => {
     const response = await fetch(
-      `https://newsapi.org/v2/everything?q=${coinName}&sortBy=popularity&pageSize=3&apiKey=6cce3939c3ec495d9e1df9dd6df36c67`
+      `https://newsapi.org/v2/everything?q=${coinName}&sortBy=popularity&pageSize=${articleCount}&apiKey=6cce3939c3ec495d9e1df9dd6df36c67`
     );
 
     const responseJson = await response.json();
@@ -22,13 +23,14 @@ const NewsContainer = ({ coinName }: IProps) => {
 
   useEffect(() => {
     typeof coinName === "string" && getNews(coinName);
-  }, []);
+  }, [articleCount]);
 
   const renderNewsPosts = newsArticles?.map((newsPost) => (
     <div className="newscontainer">
       <img src={newsPost.urlToImage} />
+
       <div>
-        <div>
+        <a href={newsPost.url} target="_blank">
           <h5>News</h5>
           <h4>{newsPost.title}</h4>
           <p>{newsPost.description}</p>
@@ -37,15 +39,20 @@ const NewsContainer = ({ coinName }: IProps) => {
             <h5>{newsPost.source?.name}</h5>
             <p>{newsPost.publishedAt}</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   ));
 
   return (
     <div className="newsRow__main">
-      <h1>Latest News</h1>
+      <h1>{coinName} Latest News</h1>
       <div className="newsRow__container">{renderNewsPosts}</div>
+      <div className="newsRow__Btn">
+        <button onClick={() => setArticleCount((prev) => prev + 3)}>
+          Read More
+        </button>
+      </div>
     </div>
   );
 };

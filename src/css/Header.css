@@ -4,8 +4,12 @@
   padding: 10px 0;
   align-items: center;
   font-size: 12px;
-  width: 75vw;
+  width: 65vw;
   margin: 0 auto;
+}
+
+.header__topCoinatier {
+  border-bottom: 1px solid rgba(180, 180, 180, 0.527);
 }
 
 .header__top__left {
@@ -15,11 +19,12 @@
 
 .header__top__left > p {
   margin-left: 10px;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .header__top__left > p > span {
   font-weight: 600;
+  color: rgb(52, 52, 255);
 }
 
 .header__top__right {
@@ -39,6 +44,9 @@
   color: white;
 }
 
+.header__container {
+  border-bottom: 1px solid rgba(180, 180, 180, 0.527);
+}
 .header__top__right > .sub_btn {
   border: 1px solid #8cc63f;
   border-radius: 5px;
@@ -49,26 +57,28 @@
 .header__top__right > .MuiSvgIcon-root {
   margin-right: 10px;
   cursor: pointer;
+  height: 15px;
 }
 
 .header__bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 75vw;
+  width: 65vw;
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 15px 0;
 }
 
 .header__bottom__BtnsL {
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 10px;
   margin-left: 20px;
 }
 
 .header__bottom__BtnsL > p {
-  margin-left: 10px;
+  margin-left: 15px;
+  font-weight: 700;
 }
 
 .header__bottom__BtnsL > img {
@@ -78,10 +88,38 @@
 .header__bottom__BtnsR {
   display: flex;
   margin-right: 20px;
+  align-items: center;
 }
 
-.header__bottom__BtnsR > p {
-  margin-right: 10px;
+.header__bottom__BtnsR > * {
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.header__bottom__BtnsR > button {
+  border: none;
+  background-color: #8cc63f;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 10px;
+}
+
+.header__bottom__BtnsR > div {
+  background-color: rgba(219, 219, 219, 0.322);
+  padding: 10px 0;
+  padding-right: 60px;
+  padding-left: 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  color: rgba(128, 128, 128, 0.459);
+}
+
+.header__bottom__BtnsR > div > p {
+  color: rgba(128, 128, 128, 0.459);
+  margin-left: 5px;
 }
 
 .header__bottom__BtnsL__smallScreen {

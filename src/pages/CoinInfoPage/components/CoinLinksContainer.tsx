@@ -1,41 +1,61 @@
-import { IProps } from "../../../types/provider.interface";
-import "../../../css/CoinInfo.css";
+import { useState } from "react";
+import { IProps, INameProp } from "../../../types/coinGecko.interface";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import "../../../css/CoinInfoPage.css";
 
 const CoinLinksContainer = ({ coinInfo }: IProps) => {
+  const [selectedBtn, setSelectedBtn] = useState("");
+  const [isSelected, setIsSelected] = useState(false);
+
   const websiteLinks = coinInfo?.links?.homepage.map((link) => {
-    if (link) {
-      return <h5>{link}</h5>;
-    }
+    if (link) return <h5>{link}</h5>;
   });
 
   const forumUrls = coinInfo?.links?.official_forum_url.map((link) => {
-    if (link) {
-      return <h5>{link}</h5>;
-    }
+    if (link) return <h5>{link}</h5>;
+  });
+
+  const tags = coinInfo?.categories?.map((link) => {
+    if (link) return <h5>{link}</h5>;
   });
 
   const reposUrls = coinInfo?.links?.repos_url.github.map((link) => {
-    if (link) {
+    if (link)
       return (
         <h5>
           <a href={link}>Github</a>
         </h5>
       );
-    }
   });
 
-  const tags = coinInfo?.categories?.map((link) => {
-    if (link) {
-      return <h5>{link}</h5>;
-    }
-  });
+  const StatsTopBtn = ({ name }: INameProp) => {
+    return (
+      <button
+        onClick={() => {
+          setSelectedBtn(name);
+          setIsSelected((prev) => !prev);
+        }}
+        onBlur={() => setIsSelected(false)}
+      >
+        {name}{" "}
+        <span>
+          {selectedBtn === name && isSelected ? (
+            <KeyboardArrowUpIcon />
+          ) : (
+            <KeyboardArrowDownIcon />
+          )}
+        </span>
+      </button>
+    );
+  };
 
   return (
-    <div className="coinInfo__stats_containeR">
+    <div className="coinLinks__container">
       <div className="coinInfo__stats_containeR_btns">
-        <p>Buy/Sell</p>
-        <p>Long/Short</p>
-        <p>Earn Crypto</p>
+        <StatsTopBtn name="Buy/Sell" />
+        <StatsTopBtn name="Long/Short" />
+        <StatsTopBtn name="EarnCrypto" />
       </div>
 
       <div className="coinInfo__stats_containeR_Info">

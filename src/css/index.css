@@ -1,5 +1,5 @@
 * {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Quicksand", "Roboto", sans-serif;
 }
 body {
   margin: 0;
@@ -11,4 +11,13 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+p {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+a {
+  color: #8cc63f;
 }

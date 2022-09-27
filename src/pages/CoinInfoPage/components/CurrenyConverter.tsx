@@ -1,40 +1,33 @@
-import { IProps } from "../../../types/provider.interface";
+import { IProps } from "../../../types/coinGecko.interface";
+import Calculator from "./Calculator";
 
-const CurrenyConverter = ({ coinInfo }: IProps) => {
+const CurrenyConverter = ({ coinInfo, allCoinsArr }: IProps) => {
+  let athDate = coinInfo?.market_data.ath_date?.usd;
+  let athDateFormatted = new Date(
+    athDate ? athDate : "2021-11-10T14:24:11.849Z"
+  );
+
+  let atlDate = coinInfo?.market_data.atl_date?.usd;
+  let atlDateFormatted = new Date(
+    atlDate ? atlDate : "2021-11-10T14:24:11.849Z"
+  );
+
+  const top5Coins = allCoinsArr?.slice(0, 6);
+  const renderTopCoins = top5Coins?.map((coin) => (
+    <div>
+      <img src={coin.image} />
+      <p>{coin.name}</p>
+    </div>
+  ));
+
   return (
     <div className="coinInfo__chart_containerR">
-      <div className="coinInfo__chart_containerR__converter">
-        <h2>Convert {coinInfo?.name} to USD</h2>
-        <div>
-          <p>{coinInfo?.symbol.toLocaleUpperCase()}</p>
-          <input
-            type="number"
-            // onChange={(e) => {
-            //   convertToUsd(Number(e.target.value));
-            // }}
-            // value={0}
-          />
-        </div>
-        <div>
-          <p>USD</p>
-          <input
-            type="number"
-            // value={0}
-            // onChange={(e) => {
-            //   convertToCrypto(Number(e.target.value));
-            // }}
-          />
-        </div>
-        <p>
-          1 {coinInfo?.symbol.toLocaleUpperCase()} = $
-          {coinInfo?.market_data.current_price.usd?.toLocaleString("en-US")}
-        </p>
-      </div>
+      <Calculator coinInfo={coinInfo} />
 
       <div className="coinInfo__chart_containerR__PriceStatistics">
         <h2>{coinInfo?.symbol.toLocaleUpperCase()} Price Statistics</h2>
         <p>{coinInfo?.symbol.toLocaleUpperCase()} Price Today</p>
-        <div>
+        <div className="coinInfo__chart_containerR__stats__container">
           <div>
             <p>{coinInfo?.name} Price</p>
             <p className="coinInfo__chart_containerR__Bold">
@@ -95,6 +88,44 @@ const CurrenyConverter = ({ coinInfo }: IProps) => {
               {coinInfo?.market_data.total_volume.usd.toLocaleString("en-US")}
             </p>
           </div>
+
+          <div>
+            <p>All-Time High </p>
+            <div className="ath_atl_container">
+              <p className="coinInfo__chart_containerR__Bold">
+                ${coinInfo?.market_data.ath?.usd.toLocaleString("en-US")}
+                <span>
+                  {" "}
+                  {coinInfo?.market_data.ath_change_percentage?.usd.toFixed(1)}%
+                </span>
+              </p>
+              <p className="atl_ath_date">
+                {atlDateFormatted.toLocaleDateString("en-US")}
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <p>All-Time Low </p>
+            <div className="ath_atl_container">
+              <p className="coinInfo__chart_containerR__Bold">
+                ${coinInfo?.market_data.atl?.usd.toLocaleString("en-US")}
+                <span className="ath_percentage">
+                  {" "}
+                  {coinInfo?.market_data.atl_change_percentage?.usd.toFixed(1)}%
+                </span>
+              </p>
+              <p className="atl_ath_date">
+                {athDateFormatted.toLocaleDateString("en-US")}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="topCoins">
+          <h4>TOP COINS BY MARKET CAP</h4>
+          {renderTopCoins}
+          <a>Compare with other coins</a>
         </div>
       </div>
     </div>
