@@ -1,15 +1,15 @@
-import "../../css/Home.css";
-import Switch from "@mui/material/Switch";
-import Table from "./components/Table";
-import MarketStatsContainer from "./components/MarketStatsContainer";
 import { useState } from "react";
 import TrendingCoinsContainer from "../../Components/TrendingCoinsContainer";
 import { useAllCoinGeckoData } from "../../Context/CoinGeckoApiDataProvider";
 import AllCategoriesBtn from "./components/AllCategoriesBtn";
+import MarketStatsContainer from "./components/MarketStatsContainer";
+import Switch from "@mui/material/Switch";
+import Table from "./components/Table";
+import "../../css/Home.css";
 
 const Home = () => {
   const [showStats, setShowStats] = useState(false);
-  const allCoins = useAllCoinGeckoData();
+  const allCoinsData = useAllCoinGeckoData();
 
   return (
     <div>
@@ -40,13 +40,13 @@ const Home = () => {
           {showStats && <MarketStatsContainer />}
         </div>
 
-        <AllCategoriesBtn coinEcosystems={allCoins?.coinEcosystemsData} />
+        <AllCategoriesBtn coinEcosystems={allCoinsData?.coinEcosystemsData} />
 
         <div className="main__tableContainer">
           <Table />
         </div>
 
-        <TrendingCoinsContainer trendingCoins={allCoins?.trendingCoins} />
+        <TrendingCoinsContainer trendingCoins={allCoinsData?.trendingCoins} />
 
         <div className="coinInfo__DescriptionContainer">
           <div>

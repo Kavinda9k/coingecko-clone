@@ -352,6 +352,27 @@ progress::-webkit-progress-value {
   padding: 20px;
 }
 
+.coinInfo__chart_containerR__converterLarge {
+  background-color: #f3f4f6;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.coinInfo__chart_containerR__converterLarge > div {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  width: 45%;
+  gap: 10px;
+}
+
+.coinInfo__chart_containerR__paragraphLarge {
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 10px;
+}
+
 .coinInfo__chart_containerR__converter {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -362,26 +383,31 @@ progress::-webkit-progress-value {
   margin-bottom: 15px;
 }
 
-.coinInfo__chart_containerR__converter > div {
+.coinInfo__chart_containerR__converter > div > div,
+.coinInfo__chart_containerR__converterLarge > div > div {
   display: flex;
   align-items: center;
   background-color: white;
   margin-bottom: 5px;
   padding: 0;
   border-radius: 5px;
+  width: 100%;
 }
 
-.coinInfo__chart_containerR__converter > div > div > p {
+.coinInfo__chart_containerR__converter > div > div > div > p,
+.coinInfo__chart_containerR__converterLarge > div > div > div > p {
   text-align: center;
   font-weight: 900;
   font-size: 16px;
 }
 
-.coinInfo__chart_containerR__converter > div > div {
+.coinInfo__chart_containerR__converter > div > div > div,
+.coinInfo__chart_containerR__converterLarge > div > div > div {
   flex: 0.2;
 }
 
-.coinInfo__chart_containerR__converter > div > input {
+.coinInfo__chart_containerR__converter > div > div > input,
+.coinInfo__chart_containerR__converterLarge > div > div > input {
   flex: 0.8;
   border: none;
   background-color: transparent;
@@ -391,7 +417,8 @@ progress::-webkit-progress-value {
   border-bottom-right-radius: 5px;
 }
 
-.coinInfo__chart_containerR__converter > div > input:focus {
+.coinInfo__chart_containerR__converter > div > div > input:focus,
+.coinInfo__chart_containerR__converterLarge > div > div > input:focus {
   outline: 3px solid rgba(0, 81, 255, 0.308);
   box-shadow: 0px 0px 5px 1px rgba(0, 255, 255, 0.308);
 }

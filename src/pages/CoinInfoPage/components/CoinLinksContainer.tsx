@@ -1,39 +1,32 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { IProps, INameProp } from "../../../types/coinGecko.interface";
-import "../../../css/CoinInfoPage.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import "../../../css/CoinInfoPage.css";
 
 const CoinLinksContainer = ({ coinInfo }: IProps) => {
   const [selectedBtn, setSelectedBtn] = useState("");
   const [isSelected, setIsSelected] = useState(false);
 
   const websiteLinks = coinInfo?.links?.homepage.map((link) => {
-    if (link) {
-      return <h5>{link}</h5>;
-    }
+    if (link) return <h5>{link}</h5>;
   });
 
   const forumUrls = coinInfo?.links?.official_forum_url.map((link) => {
-    if (link) {
-      return <h5>{link}</h5>;
-    }
+    if (link) return <h5>{link}</h5>;
+  });
+
+  const tags = coinInfo?.categories?.map((link) => {
+    if (link) return <h5>{link}</h5>;
   });
 
   const reposUrls = coinInfo?.links?.repos_url.github.map((link) => {
-    if (link) {
+    if (link)
       return (
         <h5>
           <a href={link}>Github</a>
         </h5>
       );
-    }
-  });
-
-  const tags = coinInfo?.categories?.map((link) => {
-    if (link) {
-      return <h5>{link}</h5>;
-    }
   });
 
   const StatsTopBtn = ({ name }: INameProp) => {

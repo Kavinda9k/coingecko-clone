@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { IProps, ICoinEcosytems } from "../../../types/coinGecko.interface";
 import "../../../css/AllCategoriesBtn.css";
 
-function AllCategoriesBtn({ coinEcosystems }: IProps) {
-  const [isOn, setIsOn] = useState(false);
+const AllCategoriesBtn = ({ coinEcosystems }: IProps) => {
+  const [isSelected, setIsSelected] = useState(false);
   const [categories, setCategories] = useState<ICoinEcosytems[]>();
 
   useEffect(() => {
     setCategories(coinEcosystems);
-    console.log("render");
-  }, [isOn]);
+  }, [isSelected]);
 
   const search = (name: string) => {
     setCategories(
@@ -22,14 +21,14 @@ function AllCategoriesBtn({ coinEcosystems }: IProps) {
   return (
     <div className="allCategories__container">
       <button
-        onClick={() => setIsOn((prev) => !prev)}
+        onClick={() => setIsSelected((prev) => !prev)}
         className="allCategories__btn"
       >
         All Categories
       </button>
       <div
         className={
-          isOn
+          isSelected
             ? "allCategories__listContainer"
             : "allCategories__listContainerHide"
         }
@@ -44,7 +43,7 @@ function AllCategoriesBtn({ coinEcosystems }: IProps) {
         <ul
           className="allCategories__list"
           tabIndex={0}
-          onBlur={() => setIsOn(false)}
+          onBlur={() => setIsSelected(false)}
         >
           {categories?.map((ecosystem) => (
             <li className="allCategories__nameContainer">{ecosystem.name}</li>
@@ -53,6 +52,6 @@ function AllCategoriesBtn({ coinEcosystems }: IProps) {
       </div>
     </div>
   );
-}
+};
 
 export default AllCategoriesBtn;

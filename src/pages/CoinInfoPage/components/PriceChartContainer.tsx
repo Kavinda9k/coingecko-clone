@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { IProps, IChartCoinDataXY } from "../../../types/coinGecko.interface";
+import {
+  IProps,
+  IChartCoinDataXY,
+  INameProp,
+} from "../../../types/coinGecko.interface";
 import CoinInfoVotes from "./CoinInfoVotes";
 import PriceChart from "./PriceChart";
-
-interface IBtnProps {
-  name: string;
-}
 
 const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
   const [chartData, setChartData] = useState<IChartCoinDataXY[]>([[0, 0]]);
@@ -30,7 +30,7 @@ const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
     typeof coinName === "string" && getChartData(coinName);
   }, [timeframe]);
 
-  const RenderChartCategoryBtn = ({ name }: IBtnProps) => {
+  const RenderChartCategoryBtn = ({ name }: INameProp) => {
     return (
       <button
         className={
@@ -45,7 +45,7 @@ const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
     );
   };
 
-  const RenderChartTimeBtn = ({ name }: IBtnProps) => {
+  const RenderChartTimeBtn = ({ name }: INameProp) => {
     return (
       <button
         onClick={() => {
@@ -87,7 +87,6 @@ const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
         </div>
       </div>
       <div className="coinInfo__chart_graph">
-        {/* <CoinPriceChart priceData={chartData} /> */}
         <PriceChart priceData={chartData} />
       </div>
 

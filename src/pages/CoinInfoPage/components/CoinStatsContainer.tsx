@@ -40,9 +40,11 @@ const CoinStatsContainer = ({ coinInfo }: IProps) => {
         <div className="coinInfo__stats_containerL__progressBar">
           <progress value="77" max="100"></progress>
           <div>
-            <p>$18,421.20</p>
+            <p>${coinInfo?.market_data.low_24h?.usd.toLocaleString("en-US")}</p>
             <p>24H Range</p>
-            <p>$19,612.26</p>
+            <p>
+              ${coinInfo?.market_data.high_24h?.usd.toLocaleString("en-US")}
+            </p>
           </div>
         </div>
       </div>

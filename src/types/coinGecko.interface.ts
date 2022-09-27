@@ -197,6 +197,10 @@ export interface INameProp {
   name: string;
 }
 
+export interface ICoinPriceHistory {
+  priceData: IChartCoinDataXY[];
+}
+
 export interface IProps {
   children?: React.ReactNode;
   coinInfo?: ICoinSpecificData;
@@ -205,4 +209,6 @@ export interface IProps {
   allCoinsArr?: IAllCoinsdata[];
   coinEcosystems?: ICoinEcosytems[];
   marketTablesize?: string;
+  size?: string;
+  priceData?: IChartCoinDataXY[];
 }

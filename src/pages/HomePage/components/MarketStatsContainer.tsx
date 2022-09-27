@@ -1,11 +1,9 @@
-import React from "react";
 import "../../../css/Home.css";
 import { useAllCoinGeckoData } from "../../../Context/CoinGeckoApiDataProvider";
 
-function MarketStatsContainer() {
-  const allCoins = useAllCoinGeckoData();
-
-  const getGlobalCoinData = allCoins?.getGlobalCoinData?.data;
+const MarketStatsContainer = () => {
+  const allCoinsData = useAllCoinGeckoData();
+  const getGlobalCoinData = allCoinsData?.getGlobalCoinData?.data;
 
   return (
     <div className="marketStats__cards">
@@ -32,6 +30,6 @@ function MarketStatsContainer() {
       </div>
     </div>
   );
-}
+};
 
 export default MarketStatsContainer;

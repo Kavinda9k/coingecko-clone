@@ -1,5 +1,4 @@
-import React from "react";
-import { IChartCoinDataXY } from "../../../types/coinGecko.interface";
+import { ICoinPriceHistory } from "../../../types/coinGecko.interface";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -27,10 +26,6 @@ ChartJS.register(
   Legend
 );
 
-interface ICoinPriceHistory {
-  priceData: IChartCoinDataXY[];
-}
-
 export const options = {
   responsive: true,
   elements: { point: { radius: 0 } },
@@ -48,12 +43,12 @@ export const options = {
   },
 };
 
-function PriceChart({ priceData }: ICoinPriceHistory) {
+const PriceChart = ({ priceData }: ICoinPriceHistory) => {
   const labels = priceData.map((data, i) => {
-    let myDate = new Date(data[0]);
-    let mt2 = `${myDate.getFullYear()}/${myDate.getMonth()}/${myDate.getDate()}`;
-    let newD = moment(mt2).format("MMMM d, YYYY");
-    return newD;
+    let epochDate = new Date(data[0]);
+    let dateInWords = `${epochDate.getFullYear()}/${epochDate.getMonth()}/${epochDate.getDate()}`;
+    let formattedDate = moment(dateInWords).format("MMMM d, YYYY");
+    return formattedDate;
   });
 
   const data = {
@@ -83,6 +78,6 @@ function PriceChart({ priceData }: ICoinPriceHistory) {
   };
 
   return <Line data={data} options={options} />;
-}
+};
 
 export default PriceChart;

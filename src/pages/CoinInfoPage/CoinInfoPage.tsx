@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../../css/CoinInfoPage.css";
 import { INameProp } from "../../types/coinGecko.interface";
-
 import { ICoinSpecificData } from "../../types/coinGecko.interface";
 
 //Page Components
@@ -24,7 +23,7 @@ const CoinInfoPage = () => {
   const allCoins = useAllCoinGeckoData();
 
   const [selectedBtns, setSelectedBtns] = useState("General");
-  const [mainBtnType, setMainBtnType] = useState("Overview");
+  const [subPage, setSubPage] = useState("Overview");
   const [coinSpecificData, setCoinSpecificData] = useState<ICoinSpecificData>();
 
   useEffect(() => {
@@ -57,8 +56,8 @@ const CoinInfoPage = () => {
   const CoinInfoMainBtn = ({ name }: INameProp) => {
     return (
       <p
-        className={mainBtnType === name ? "mainBtnSelected" : ""}
-        onClick={() => setMainBtnType(name)}
+        className={subPage === name ? "mainBtnSelected" : ""}
+        onClick={() => setSubPage(name)}
       >
         {name}
       </p>
@@ -98,7 +97,7 @@ const CoinInfoPage = () => {
         <CoinInfoChartBtn name="Analysis" />
       </div>
 
-      {mainBtnType === "Overview" ? (
+      {subPage === "Overview" ? (
         <div>
           <div className="coinInfo__chart_container">
             {typeof id === "string" ? (
@@ -132,7 +131,7 @@ const CoinInfoPage = () => {
             <TrendingCoinsContainer trendingCoins={allCoins?.trendingCoins} />
           </div>
         </div>
-      ) : mainBtnType === "Markets" ? (
+      ) : subPage === "Markets" ? (
         <div>
           <MarketTable coinInfo={coinSpecificData} />
         </div>

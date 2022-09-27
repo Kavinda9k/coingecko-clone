@@ -1,3 +1,6 @@
+.converterSection__container > div > h2 {
+  margin-bottom: 15px;
+}
 .priceComparisonTables {
   display: flex;
   overflow-x: hidden;
