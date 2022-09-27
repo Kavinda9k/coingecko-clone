@@ -1,5 +1,5 @@
 .marketTable__container {
-  margin: 40px 0;
+  margin: 20px 0;
 }
 
 .marketTable__container > table {
@@ -89,5 +89,19 @@ td:nth-child(3) {
     width: 100vw;
     overflow-x: scroll;
     margin-bottom: 100px;
+  }
+
+  .marketTable {
+    overflow: scroll;
+  }
+
+  .marketTable__container > p {
+    color: rgba(128, 128, 128, 0.733);
+    margin-bottom: 10px;
+  }
+
+  .marketTable__container > div > button {
+    margin: 0 auto;
+    margin-top: 20px;
   }
 }

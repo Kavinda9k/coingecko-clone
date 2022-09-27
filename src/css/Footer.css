@@ -118,6 +118,7 @@
     display: block;
     background-color: #242222;
     width: 100vw;
+    margin-top: 50px;
   }
 
   .footer__main__mobile__btns {

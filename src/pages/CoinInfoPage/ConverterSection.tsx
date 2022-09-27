@@ -10,7 +10,7 @@ const ConverterSection = ({ coinName, coinInfo }: IProps) => {
   const allCoinsData = useAllCoinGeckoData();
   const [values] = useState([0.01, 0.1, 1, 2, 5, 10, 20, 50, 100, 1000]);
 
-  const RenderTable = ({ name }: INameProp) => {
+  const RenderConversionTable = ({ name }: INameProp) => {
     const currentPrice = coinInfo?.market_data.current_price.usd;
 
     return (
@@ -78,11 +78,11 @@ const ConverterSection = ({ coinName, coinInfo }: IProps) => {
             Convert {coinInfo?.name} ({coinInfo?.symbol.toLocaleUpperCase()}) to
             USD
           </h2>
-          <RenderTable name={coinInfo ? coinInfo?.symbol : "BTC"} />
+          <RenderConversionTable name={coinInfo ? coinInfo?.symbol : "BTC"} />
         </div>
         <div>
           <h2>Convert US Dollar (USD) to ETH</h2>
-          <RenderTable name="USD" />
+          <RenderConversionTable name="USD" />
         </div>
       </div>
       <TrendingCoinsContainer trendingCoins={allCoinsData?.trendingCoins} />

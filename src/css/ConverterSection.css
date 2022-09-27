@@ -1,6 +1,3 @@
-.converterSection__container > div > h2 {
-  margin-bottom: 15px;
-}
 .priceComparisonTables {
   display: flex;
   overflow-x: hidden;
@@ -41,4 +38,14 @@
 .converterSection__description > p {
   margin-bottom: 15px;
   font-size: 14px;
+}
+
+@media only screen and (max-width: 700px) {
+  .priceComparisonTables > div > h2 {
+    font-size: 15px;
+  }
+
+  .priceComparisonTables__tbale > tr > td {
+    font-size: 10px;
+  }
 }

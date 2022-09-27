@@ -7,8 +7,6 @@ class CoinGeckoService implements ICoinGeckoService {
     );
     const responseJson = await response.json();
     return responseJson;
-
-    throw new Error("Method not implemented.");
   };
 
   getCoinEcosytemData = async () => {
@@ -17,8 +15,6 @@ class CoinGeckoService implements ICoinGeckoService {
     );
     const responseJson = await response.json();
     return responseJson;
-
-    throw new Error("Method not implemented.");
   };
 
   getTrendingCoins = async () => {
@@ -27,8 +23,6 @@ class CoinGeckoService implements ICoinGeckoService {
     );
     const responseJson = await response.json();
     return responseJson.coins;
-
-    throw new Error("Method not implemented.");
   };
 
   getChartData = async (name: string = "bitcoin") => {
@@ -52,8 +46,6 @@ class CoinGeckoService implements ICoinGeckoService {
     const response = await fetch(`https://api.coingecko.com/api/v3/global`);
     const responseJson = await response.json();
     return responseJson;
-
-    throw new Error("Method not implemented.");
   };
 }
 

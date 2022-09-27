@@ -212,3 +212,13 @@ export interface IProps {
   size?: string;
   priceData?: IChartCoinDataXY[];
 }
+
+export interface allCoinGeckoData {
+  trendingCoins: ITrendingCoinData[];
+  allCoinsData: IAllCoinsdata[];
+  chartData: IChartCoinDataXY[];
+  coinSpecificData: ICoinSpecificData | undefined;
+  getCoinSpecificCoinData: (name: string) => void;
+  getGlobalCoinData: IGlobalCoinData | undefined;
+  coinEcosystemsData: ICoinEcosytems[];
+}

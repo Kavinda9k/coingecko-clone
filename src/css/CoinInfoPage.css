@@ -683,11 +683,110 @@ tr:last-of-type td:last-of-type {
   .coinInfo__container__main {
     width: 90vw;
   }
+
+  .coinInfo__mainBtns_container {
+    overflow-x: scroll;
+  }
+
+  .coinInfo__mainBtns_container > p {
+    margin-right: 30px;
+    padding: 5px 0;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .coinInfo__chart_container__btns {
+    margin-top: 10px;
+  }
+
+  .coinInfo__chart_container__btns {
+    display: flex;
+    overflow-x: scroll;
+    padding: 15px 0;
+  }
+
+  .coinInfo__chart_containerR__converterLarge {
+    margin-bottom: 20px;
+  }
+
+  .coinInfo__chart_containerR__converterLarge > div {
+    width: 100%;
+  }
+
+  .coinInfo__chart_containerR__converterLarge > div > div {
+    width: 48%;
+  }
+
+  .coinInfo__chart_containerR__converterLarge > div > div > div > p {
+    font-size: 15px;
+    padding: 2px;
+  }
+
+  .coinInfo__chart_containerR__converterLarge > div > div > input {
+    height: 40px;
+  }
 }
 
 @media only screen and (max-width: 700px) {
   .coinInfo__container__main {
     width: 90vw;
     padding: 0 10px;
+    display: block;
+  }
+  .coinInfo__chart_graphBtns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .coinInfo__chart_graphBtns > div > button {
+    padding: 5px 10px;
+    background-color: transparent;
+    font-size: 13px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.733);
+    border-left: none;
+    margin-bottom: 5px;
+  }
+
+  .pricePercentageChanged__container {
+    width: 100%;
+  }
+
+  .pricePercentageChanged__container > table > tr > th,
+  .pricePercentageChanged__container > table > tr > td {
+    padding: 7px;
+    font-size: 12px;
+  }
+
+  .survey__container,
+  .survey__container__voted {
+    width: 80vw;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .survey__container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    height: 100%;
+    margin-bottom: 20px;
+  }
+
+  .survey__containerBtns {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+  }
+
+  .survey__containerBtns > button > img {
+    height: 15px;
+    margin-right: 10px;
+  }
+
+  .survey__container > div > p {
+    font-size: 12.5px;
+    margin-top: 1px;
+    margin-bottom: 5px;
   }
 }

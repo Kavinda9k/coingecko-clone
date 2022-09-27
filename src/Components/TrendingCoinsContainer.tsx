@@ -5,7 +5,7 @@ import { ITrendingCoinData } from "../types/coinGecko.interface";
 import { IProps } from "../types/coinGecko.interface";
 
 const TrendingCoinsContainer = ({ trendingCoins }: IProps) => {
-  const arrWithNewButtons: ITrendingCoinData[] = [
+  const trendingCoinBtns: ITrendingCoinData[] = [
     {
       item: {
         coin_id: 8,
@@ -38,11 +38,11 @@ const TrendingCoinsContainer = ({ trendingCoins }: IProps) => {
     },
   ];
 
-  const allArr = trendingCoins?.concat(arrWithNewButtons);
+  const trendingCoinArr = trendingCoins?.concat(trendingCoinBtns);
 
   const renderCards =
-    allArr &&
-    allArr.map((coin) => {
+    trendingCoinArr &&
+    trendingCoinArr.map((coin) => {
       const id = coin.item.coin_id;
       return (
         <div

@@ -148,4 +148,8 @@
   .main__nav > p:nth-child(3) {
     display: none;
   }
+
+  .coinInfo__DescriptionContainer {
+    padding: 15px;
+  }
 }

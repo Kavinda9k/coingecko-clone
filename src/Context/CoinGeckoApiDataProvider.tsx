@@ -1,5 +1,6 @@
 import { useContext, createContext, useState, useEffect } from "react";
 import {
+  allCoinGeckoData,
   ICoinGeckoService,
   ITrendingCoinData,
   IAllCoinsdata,
@@ -10,16 +11,6 @@ import {
   ICoinEcosytems,
 } from "../types/coinGecko.interface";
 import CoinGeckoService from "./CoinGeckoService";
-
-interface allCoinGeckoData {
-  trendingCoins: ITrendingCoinData[];
-  allCoinsData: IAllCoinsdata[];
-  chartData: IChartCoinDataXY[];
-  coinSpecificData: ICoinSpecificData | undefined;
-  getCoinSpecificCoinData: (name: string) => void;
-  getGlobalCoinData: IGlobalCoinData | undefined;
-  coinEcosystemsData: ICoinEcosytems[];
-}
 
 const CoinGeckoDataContext = createContext<allCoinGeckoData | null>(null);
 
@@ -63,12 +54,6 @@ const CoinGeckoApiDataProvider = ({ children }: IProps) => {
     CoinGeckoApiData.getGlobalCoinData()
       .then((value) => {
         setGlobalCoinData(value);
-      })
-      .catch((err) => console.log(err));
-
-    CoinGeckoApiData.getChartData("bitcoin")
-      .then((value) => {
-        setChartData(value);
       })
       .catch((err) => console.log(err));
   }, []);

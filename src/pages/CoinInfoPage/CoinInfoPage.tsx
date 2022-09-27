@@ -15,7 +15,7 @@ import ConverterSection from "./ConverterSection";
 
 import { useAllCoinGeckoData } from "../../Context/CoinGeckoApiDataProvider";
 import CoinDescription from "./components/CoinDescription";
-import MarketTable from "./components/TradingMarketsTable";
+import MarketTable from "./components/MarketTable";
 
 const CoinInfoPage = () => {
   const [count, setCount] = useState(0);

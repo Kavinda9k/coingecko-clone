@@ -44,23 +44,25 @@ const MarketTable = ({ coinInfo, marketTablesize }: IProps) => {
       <p>
         <a>Affiliate disclosures</a>
       </p>
-      <table>
-        <tr>
-          <th>#</th>
-          <th>Exchange</th>
-          <th>Pair</th>
-          <th>Price</th>
-          <th>Spread</th>
-          <th>+2% Depth</th>
-          <th>-2% Depth</th>
-          <th>24h Volume</th>
-          <th>Volume %</th>
-          <th>Last Traded</th>
-          <th>Trust Score</th>
-        </tr>
+      <div className="marketTable">
+        <table>
+          <tr>
+            <th>#</th>
+            <th>Exchange</th>
+            <th>Pair</th>
+            <th>Price</th>
+            <th>Spread</th>
+            <th>+2% Depth</th>
+            <th>-2% Depth</th>
+            <th>24h Volume</th>
+            <th>Volume %</th>
+            <th>Last Traded</th>
+            <th>Trust Score</th>
+          </tr>
 
-        {renderTableData}
-      </table>
+          {renderTableData}
+        </table>
+      </div>
       <p>* Anomaly - Trading price is an outlier against the average</p>
       <p>** Inactive - No trades in the last 3 hours</p>
       <div>
