@@ -4,7 +4,7 @@ import {
   IChartCoinDataXY,
   INameProp,
 } from "../../../types/coinGecko.interface";
-import CoinInfoVotes from "./CoinInfoVotes";
+import CoinVoteContainer from "./CoinVoteContainer";
 import PriceChart from "./PriceChart";
 
 const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
@@ -130,7 +130,7 @@ const PriceChartContainer = ({ coinName, coinInfo }: IProps) => {
         </table>
       </div>
 
-      <CoinInfoVotes />
+      <CoinVoteContainer />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-const CoinInfoVotes = () => {
+const CoinVoteContainer = () => {
   const [finshedVoting, setFinishedVoting] = React.useState(false);
   const [vote, setVote] = React.useState("");
 
@@ -76,4 +76,4 @@ const CoinInfoVotes = () => {
   );
 };
 
-export default CoinInfoVotes;
+export default CoinVoteContainer;

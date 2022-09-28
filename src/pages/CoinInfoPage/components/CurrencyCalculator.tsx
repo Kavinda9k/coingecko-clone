@@ -1,7 +1,7 @@
 import React from "react";
 import { IProps } from "../../../types/coinGecko.interface";
 
-function Calculator({ coinInfo, size }: IProps) {
+function CurrencyCalculator({ coinInfo, size }: IProps) {
   const [usdValue, setUsdValue] = React.useState<number | undefined>();
   const [cryptoValue, setCryptoValue] = React.useState<number | undefined>();
 
@@ -68,4 +68,4 @@ function Calculator({ coinInfo, size }: IProps) {
   );
 }
 
-export default Calculator;
+export default CurrencyCalculator;

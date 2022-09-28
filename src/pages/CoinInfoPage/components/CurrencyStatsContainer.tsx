@@ -1,7 +1,7 @@
 import { IProps } from "../../../types/coinGecko.interface";
-import Calculator from "./Calculator";
+import CurrencyCalculator from "./CurrencyCalculator";
 
-const CurrenyConverter = ({ coinInfo, allCoinsArr }: IProps) => {
+const CurrencyStatsContainer = ({ coinInfo, allCoinsArr }: IProps) => {
   let athDate = coinInfo?.market_data.ath_date?.usd;
   let athDateFormatted = new Date(
     athDate ? athDate : "2021-11-10T14:24:11.849Z"
@@ -22,7 +22,7 @@ const CurrenyConverter = ({ coinInfo, allCoinsArr }: IProps) => {
 
   return (
     <div className="coinInfo__chart_containerR">
-      <Calculator coinInfo={coinInfo} />
+      <CurrencyCalculator coinInfo={coinInfo} />
 
       <div className="coinInfo__chart_containerR__PriceStatistics">
         <h2>{coinInfo?.symbol.toLocaleUpperCase()} Price Statistics</h2>
@@ -132,4 +132,4 @@ const CurrenyConverter = ({ coinInfo, allCoinsArr }: IProps) => {
   );
 };
 
-export default CurrenyConverter;
+export default CurrencyStatsContainer;

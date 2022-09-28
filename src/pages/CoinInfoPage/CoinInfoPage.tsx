@@ -1,52 +1,47 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ICoinSpecificData, INameProp } from "../../types/coinGecko.interface";
+import { useAllCoinGeckoData } from "../../Context/CoinGeckoApiDataProvider";
 import "../../css/CoinInfoPage.css";
-import { INameProp } from "../../types/coinGecko.interface";
-import { ICoinSpecificData } from "../../types/coinGecko.interface";
 
 //Page Components
 import CoinStatsContainer from "./components/CoinStatsContainer";
 import CoinLinksContainer from "./components/CoinLinksContainer";
-import PriceChartContainer from "./components/PriceChartContainer";
-import CurrenyConverter from "./components/CurrenyConverter";
-import TrendingCoinsContainer from "../../Components/TrendingCoinsContainer";
-import NewsContainer from "./components/NewsContainer";
-import ConverterSection from "./ConverterSection";
-
-import { useAllCoinGeckoData } from "../../Context/CoinGeckoApiDataProvider";
-import CoinDescription from "./components/CoinDescription";
-import MarketTable from "./components/MarketTable";
+import ConverterSubPage from "./subpages/ConverterSubPage";
+import TradingMarketsTable from "./components/TradingMarketsTable";
+import OverviewSubPage from "./subpages/OverviewSubPage";
 
 const CoinInfoPage = () => {
   const [count, setCount] = useState(0);
-  const { id } = useParams();
+  const { coinId } = useParams();
   const allCoins = useAllCoinGeckoData();
 
-  const [selectedBtns, setSelectedBtns] = useState("General");
-  const [subPage, setSubPage] = useState("Overview");
+  const [coinInfoChartBtnName, setCoinInfoChartBtnName] = useState("General");
+  const [subPageName, setSubPageName] = useState("Overview");
   const [coinSpecificData, setCoinSpecificData] = useState<ICoinSpecificData>();
 
   useEffect(() => {
-    if (typeof id === "string") {
-      allCoins?.getCoinSpecificCoinData(id);
+    if (typeof coinId === "string") {
+      allCoins?.getCoinSpecificData(coinId);
       setTimeout(() => {
         setCount((prev) => prev + 1);
       }, 1000);
     }
-  }, [id]);
+  }, [coinId]);
 
   useEffect(() => {
     setCoinSpecificData(allCoins?.coinSpecificData);
-    console.log("render");
   }, [count]);
 
   const CoinInfoChartBtn = ({ name }: INameProp) => {
     return (
       <button
         className={
-          selectedBtns === name ? "coinInfo__chart_container__btnsSelected" : ""
+          coinInfoChartBtnName === name
+            ? "coinInfo__chart_container__btnsSelected"
+            : ""
         }
-        onClick={() => setSelectedBtns(name)}
+        onClick={() => setCoinInfoChartBtnName(name)}
       >
         {name}
       </button>
@@ -56,8 +51,8 @@ const CoinInfoPage = () => {
   const CoinInfoMainBtn = ({ name }: INameProp) => {
     return (
       <p
-        className={subPage === name ? "mainBtnSelected" : ""}
-        onClick={() => setSubPage(name)}
+        className={subPageName === name ? "mainBtnSelected" : ""}
+        onClick={() => setSubPageName(name)}
       >
         {name}
       </p>
@@ -76,7 +71,6 @@ const CoinInfoPage = () => {
 
         <div className="coinInfo__stats_container">
           <CoinStatsContainer coinInfo={coinSpecificData} />
-          {/* <CoinLinksContainer coinInfo={coinSpecificData} /> */}
           <CoinLinksContainer coinInfo={coinSpecificData} />
         </div>
       </div>
@@ -97,49 +91,35 @@ const CoinInfoPage = () => {
         <CoinInfoChartBtn name="Analysis" />
       </div>
 
-      {subPage === "Overview" ? (
-        <div>
-          <div className="coinInfo__chart_container">
-            {typeof id === "string" ? (
-              <PriceChartContainer coinName={id} coinInfo={coinSpecificData} />
-            ) : (
-              <div></div>
-            )}
-            <CurrenyConverter
-              coinInfo={coinSpecificData}
-              allCoinsArr={allCoins?.allCoinsData}
-            />
-          </div>
+      {(() => {
+        switch (subPageName) {
+          case "Overview":
+            return (
+              <OverviewSubPage coinName={coinId} coinInfo={coinSpecificData} />
+            );
+          case "Markets":
+            return (
+              <div>
+                <TradingMarketsTable coinInfo={coinSpecificData} />
+              </div>
+            );
 
-          <div className="coinInfo__DescriptionContainer">
-            <CoinDescription coinInfo={coinSpecificData} />
-          </div>
+          case "Converter":
+            return (
+              <div className="converterSection__container">
+                <ConverterSubPage
+                  coinName={coinId}
+                  coinInfo={coinSpecificData}
+                />
+              </div>
+            );
 
-          <div>
-            <MarketTable coinInfo={coinSpecificData} marketTablesize="small" />
-          </div>
-
-          <div className="coinInfo__NewsContainer">
-            {typeof id === "string" ? (
-              <NewsContainer coinName={id} />
-            ) : (
-              <div></div>
-            )}
-          </div>
-
-          <div className="coinInfo__trendingCoinsContainer">
-            <TrendingCoinsContainer trendingCoins={allCoins?.trendingCoins} />
-          </div>
-        </div>
-      ) : subPage === "Markets" ? (
-        <div>
-          <MarketTable coinInfo={coinSpecificData} />
-        </div>
-      ) : (
-        <div className="converterSection__container">
-          <ConverterSection coinName={id} coinInfo={coinSpecificData} />
-        </div>
-      )}
+          default:
+            return (
+              <OverviewSubPage coinName={coinId} coinInfo={coinSpecificData} />
+            );
+        }
+      })()}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { IProps } from "../../../types/coinGecko.interface";
 import "../../../css/TradingMarketsTable.css";
 
-const MarketTable = ({ coinInfo, marketTablesize }: IProps) => {
+const TradingMarketsTable = ({ coinInfo, marketTablesize }: IProps) => {
   let marketData;
 
   if (marketTablesize === "small") {
@@ -72,4 +72,4 @@ const MarketTable = ({ coinInfo, marketTablesize }: IProps) => {
   );
 };
 
-export default MarketTable;
+export default TradingMarketsTable;

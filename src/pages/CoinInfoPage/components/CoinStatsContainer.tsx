@@ -1,8 +1,8 @@
 import { IProps } from "../../../types/coinGecko.interface";
-import "../../../css/CoinInfoPage.css";
 import CloudDoneOutlinedIcon from "@mui/icons-material/CloudDoneOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import StarBorderPurple500OutlinedIcon from "@mui/icons-material/StarBorderPurple500Outlined";
+import "../../../css/CoinInfoPage.css";
 
 const CoinStatsContainer = ({ coinInfo }: IProps) => {
   return (

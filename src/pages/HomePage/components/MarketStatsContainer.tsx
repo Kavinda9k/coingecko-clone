@@ -3,7 +3,7 @@ import { useAllCoinGeckoData } from "../../../Context/CoinGeckoApiDataProvider";
 
 const MarketStatsContainer = () => {
   const allCoinsData = useAllCoinGeckoData();
-  const getGlobalCoinData = allCoinsData?.getGlobalCoinData?.data;
+  const getGlobalCoinData = allCoinsData?.globalCoinData?.data;
 
   return (
     <div className="marketStats__cards">

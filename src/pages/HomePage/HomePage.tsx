@@ -4,11 +4,11 @@ import { useAllCoinGeckoData } from "../../Context/CoinGeckoApiDataProvider";
 import AllCategoriesBtn from "./components/AllCategoriesBtn";
 import MarketStatsContainer from "./components/MarketStatsContainer";
 import Switch from "@mui/material/Switch";
-import Table from "./components/Table";
+import AllCoinsDataTable from "./components/AllCoinsDataTable";
 import "../../css/Home.css";
 
-const Home = () => {
-  const [showStats, setShowStats] = useState(false);
+const HomePage = () => {
+  const [showCryptoMarketStats, setShowCryptoMarketStats] = useState(false);
   const allCoinsData = useAllCoinGeckoData();
 
   return (
@@ -29,7 +29,9 @@ const Home = () => {
           <div>
             <h1>Cryptocurrency Prices by Market Cap</h1>
             <div className="main__heading__switch">
-              <Switch onChange={() => setShowStats((prev) => !prev)} />
+              <Switch
+                onChange={() => setShowCryptoMarketStats((prev) => !prev)}
+              />
             </div>
             <p>Show Stats</p>
           </div>
@@ -37,16 +39,18 @@ const Home = () => {
             The global cryptocurrency market cap today is $1.09 Trillion, a 0.5%
             change in the last 24 hours. Read More
           </p>
-          {showStats && <MarketStatsContainer />}
+          {showCryptoMarketStats && <MarketStatsContainer />}
         </div>
 
         <AllCategoriesBtn coinEcosystems={allCoinsData?.coinEcosystemsData} />
 
         <div className="main__tableContainer">
-          <Table />
+          <AllCoinsDataTable />
         </div>
 
-        <TrendingCoinsContainer trendingCoins={allCoinsData?.trendingCoins} />
+        <TrendingCoinsContainer
+          trendingCoins={allCoinsData?.trendingCoinsData}
+        />
 
         <div className="coinInfo__DescriptionContainer">
           <div>
@@ -149,4 +153,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

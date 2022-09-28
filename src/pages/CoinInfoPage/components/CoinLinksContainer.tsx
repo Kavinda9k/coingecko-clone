@@ -29,7 +29,7 @@ const CoinLinksContainer = ({ coinInfo }: IProps) => {
       );
   });
 
-  const StatsTopBtn = ({ name }: INameProp) => {
+  const CoinLinksContainerTopBtns = ({ name }: INameProp) => {
     return (
       <button
         onClick={() => {
@@ -53,9 +53,9 @@ const CoinLinksContainer = ({ coinInfo }: IProps) => {
   return (
     <div className="coinLinks__container">
       <div className="coinInfo__stats_containeR_btns">
-        <StatsTopBtn name="Buy/Sell" />
-        <StatsTopBtn name="Long/Short" />
-        <StatsTopBtn name="EarnCrypto" />
+        <CoinLinksContainerTopBtns name="Buy/Sell" />
+        <CoinLinksContainerTopBtns name="Long/Short" />
+        <CoinLinksContainerTopBtns name="EarnCrypto" />
       </div>
 
       <div className="coinInfo__stats_containeR_Info">

@@ -4,14 +4,14 @@ import "../../../css/AllCategoriesBtn.css";
 
 const AllCategoriesBtn = ({ coinEcosystems }: IProps) => {
   const [isSelected, setIsSelected] = useState(false);
-  const [categories, setCategories] = useState<ICoinEcosytems[]>();
+  const [allcategories, setAllCategories] = useState<ICoinEcosytems[]>();
 
   useEffect(() => {
-    setCategories(coinEcosystems);
+    setAllCategories(coinEcosystems);
   }, [isSelected]);
 
-  const search = (name: string) => {
-    setCategories(
+  const searchCategories = (name: string) => {
+    setAllCategories(
       coinEcosystems?.filter((category) => {
         return category.name.includes(name);
       })
@@ -37,7 +37,7 @@ const AllCategoriesBtn = ({ coinEcosystems }: IProps) => {
           <input
             type="text"
             placeholder="Search.."
-            onChange={(e) => search(e.target.value)}
+            onChange={(e) => searchCategories(e.target.value)}
           />
         </div>
         <ul
@@ -45,7 +45,7 @@ const AllCategoriesBtn = ({ coinEcosystems }: IProps) => {
           tabIndex={0}
           onBlur={() => setIsSelected(false)}
         >
-          {categories?.map((ecosystem) => (
+          {allcategories?.map((ecosystem) => (
             <li className="allCategories__nameContainer">{ecosystem.name}</li>
           ))}
         </ul>

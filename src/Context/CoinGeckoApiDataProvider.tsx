@@ -19,11 +19,13 @@ export const useAllCoinGeckoData = () => {
 };
 
 const CoinGeckoApiDataProvider = ({ children }: IProps) => {
-  const [getGlobalCoinData, setGlobalCoinData] = useState<IGlobalCoinData>();
+  const [globalCoinData, setGlobalCoinData] = useState<IGlobalCoinData>();
   const [coinEcosystemsData, getCoinEcosystemsData] = useState<
     ICoinEcosytems[]
   >([]);
-  const [trendingCoins, setTrendingCoins] = useState<ITrendingCoinData[]>([]);
+  const [trendingCoinsData, setTrendingCoinsData] = useState<
+    ITrendingCoinData[]
+  >([]);
   const [allCoinsData, setAllCoinsData] = useState<IAllCoinsdata[]>([]);
   const [chartData, setChartData] = useState<IChartCoinDataXY[]>([]);
   const [coinSpecificData, setCoinSpecificData] = useState<
@@ -35,7 +37,7 @@ const CoinGeckoApiDataProvider = ({ children }: IProps) => {
   useEffect(() => {
     CoinGeckoApiData.getTrendingCoins()
       .then((value) => {
-        setTrendingCoins(value);
+        setTrendingCoinsData(value);
       })
       .catch((err) => console.log(err));
 
@@ -58,7 +60,7 @@ const CoinGeckoApiDataProvider = ({ children }: IProps) => {
       .catch((err) => console.log(err));
   }, []);
 
-  const getCoinSpecificCoinData = (name: string) => {
+  const getCoinSpecificData = (name: string) => {
     CoinGeckoApiData.getCoinSpecificData(name).then((value) => {
       setCoinSpecificData(value);
     });
@@ -67,12 +69,12 @@ const CoinGeckoApiDataProvider = ({ children }: IProps) => {
   return (
     <CoinGeckoDataContext.Provider
       value={{
-        trendingCoins,
+        trendingCoinsData,
         allCoinsData,
         chartData,
         coinSpecificData,
-        getCoinSpecificCoinData,
-        getGlobalCoinData,
+        getCoinSpecificData,
+        globalCoinData,
         coinEcosystemsData,
       }}
     >

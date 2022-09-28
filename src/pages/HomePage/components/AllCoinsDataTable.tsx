@@ -4,12 +4,12 @@ import { useAllCoinGeckoData } from "../../../Context/CoinGeckoApiDataProvider";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import "../../../css/Table.css";
 
-const Table = () => {
+const AllCoinsDataTable = () => {
   const navigate = useNavigate();
   const allCoinsData = useAllCoinGeckoData();
   const theme = useTheme();
 
-  const renderTable = allCoinsData?.allCoinsData.map((coin) => {
+  const renderAllCoinsDataTable = allCoinsData?.allCoinsData.map((coin) => {
     return (
       <tr
         key={coin.id}
@@ -95,11 +95,11 @@ const Table = () => {
             <th>Supply</th>
             {/* <th>Last 7 days</th> */}
           </tr>
-          {renderTable}
+          {renderAllCoinsDataTable}
         </table>
       </div>
     </div>
   );
 };
 
-export default Table;
+export default AllCoinsDataTable;

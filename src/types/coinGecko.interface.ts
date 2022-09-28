@@ -214,11 +214,11 @@ export interface IProps {
 }
 
 export interface allCoinGeckoData {
-  trendingCoins: ITrendingCoinData[];
+  trendingCoinsData: ITrendingCoinData[];
   allCoinsData: IAllCoinsdata[];
   chartData: IChartCoinDataXY[];
   coinSpecificData: ICoinSpecificData | undefined;
-  getCoinSpecificCoinData: (name: string) => void;
-  getGlobalCoinData: IGlobalCoinData | undefined;
+  getCoinSpecificData: (name: string) => void;
+  globalCoinData: IGlobalCoinData | undefined;
   coinEcosystemsData: ICoinEcosytems[];
 }

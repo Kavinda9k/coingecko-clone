@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { IProps, INameProp } from "../../types/coinGecko.interface";
-import PriceChartContainer from "./components/PriceChartContainer";
-import { useAllCoinGeckoData } from "../../Context/CoinGeckoApiDataProvider";
-import TrendingCoinsContainer from "../../Components/TrendingCoinsContainer";
-import Calculator from "./components/Calculator";
-import "../../css/ConverterSection.css";
+import { IProps, INameProp } from "../../../types/coinGecko.interface";
+import PriceChartContainer from "../components/PriceChartContainer";
+import { useAllCoinGeckoData } from "../../../Context/CoinGeckoApiDataProvider";
+import TrendingCoinsContainer from "../../../Components/TrendingCoinsContainer";
+import CurrencyCalculator from "../components/CurrencyCalculator";
+import "../../../css/ConverterSubPage.css";
 
-const ConverterSection = ({ coinName, coinInfo }: IProps) => {
+const ConverterSubPage = ({ coinName, coinInfo }: IProps) => {
   const allCoinsData = useAllCoinGeckoData();
   const [values] = useState([0.01, 0.1, 1, 2, 5, 10, 20, 50, 100, 1000]);
 
@@ -51,7 +51,7 @@ const ConverterSection = ({ coinName, coinInfo }: IProps) => {
         {coinInfo?.symbol.toLocaleUpperCase()} to USD
       </h2>
       <div>
-        <Calculator coinInfo={coinInfo} size="large" />
+        <CurrencyCalculator coinInfo={coinInfo} size="large" />
       </div>
       <PriceChartContainer coinName={coinName} coinInfo={coinInfo} />
       <div className="converterSection__description">
@@ -85,9 +85,9 @@ const ConverterSection = ({ coinName, coinInfo }: IProps) => {
           <RenderConversionTable name="USD" />
         </div>
       </div>
-      <TrendingCoinsContainer trendingCoins={allCoinsData?.trendingCoins} />
+      <TrendingCoinsContainer trendingCoins={allCoinsData?.trendingCoinsData} />
     </div>
   );
 };
 
-export default ConverterSection;
+export default ConverterSubPage;
