@@ -46,6 +46,7 @@ const TrendingCoinsContainer = ({ trendingCoins }: IProps) => {
       const id = coin.item.coin_id;
       return (
         <div
+          key={id}
           className={
             coin.item.id === "more_coins"
               ? "trending__cardIMG"

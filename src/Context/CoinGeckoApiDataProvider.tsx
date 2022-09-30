@@ -60,10 +60,9 @@ const CoinGeckoApiDataProvider = ({ children }: IProps) => {
       .catch((err) => console.log(err));
   }, []);
 
-  const getCoinSpecificData = (name: string) => {
-    CoinGeckoApiData.getCoinSpecificData(name).then((value) => {
-      setCoinSpecificData(value);
-    });
+  const getCoinSpecificData = async (name: string) => {
+    const value = await CoinGeckoApiData.getCoinSpecificData(name)
+    return value
   };
 
   return (

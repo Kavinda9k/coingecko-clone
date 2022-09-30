@@ -12,7 +12,6 @@ import TradingMarketsTable from "./components/TradingMarketsTable";
 import OverviewSubPage from "./subpages/OverviewSubPage";
 
 const CoinInfoPage = () => {
-  const [count, setCount] = useState(0);
   const { coinId } = useParams();
   const allCoins = useAllCoinGeckoData();
 
@@ -21,17 +20,18 @@ const CoinInfoPage = () => {
   const [coinSpecificData, setCoinSpecificData] = useState<ICoinSpecificData>();
 
   useEffect(() => {
-    if (typeof coinId === "string") {
-      allCoins?.getCoinSpecificData(coinId);
-      setTimeout(() => {
-        setCount((prev) => prev + 1);
-      }, 1000);
-    }
+    loadCoinData()
   }, [coinId]);
 
-  useEffect(() => {
-    setCoinSpecificData(allCoins?.coinSpecificData);
-  }, [count]);
+  const loadCoinData = async () => {
+    if (!coinId) { return }
+
+    const coinData = await allCoins?.getCoinSpecificData(coinId)
+    if (!coinData) {
+      return
+    }
+    setCoinSpecificData(coinData)
+  }
 
   const CoinInfoChartBtn = ({ name }: INameProp) => {
     return (

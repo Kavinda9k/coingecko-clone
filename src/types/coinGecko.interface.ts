@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface IAllCoinsdata {
   id: string;
   rank: string;
@@ -201,6 +203,17 @@ export interface ICoinPriceHistory {
   priceData: IChartCoinDataXY[];
 }
 
+// This is just an example of how you can use composition (the extends part) to make a basic props interface with things you actually do use all over the site
+export interface IBaseProps {
+  children?: React.ReactNode
+}
+
+// Then add more specifcs where necessary
+export interface ICoinDetailProps extends IBaseProps {
+  coinInfo: ICoinSpecificData
+  coinName: string
+}
+
 export interface IProps {
   children?: React.ReactNode;
   coinInfo?: ICoinSpecificData;
@@ -218,7 +231,7 @@ export interface allCoinGeckoData {
   allCoinsData: IAllCoinsdata[];
   chartData: IChartCoinDataXY[];
   coinSpecificData: ICoinSpecificData | undefined;
-  getCoinSpecificData: (name: string) => void;
+  getCoinSpecificData: (name: string) => Promise<ICoinSpecificData>;
   globalCoinData: IGlobalCoinData | undefined;
   coinEcosystemsData: ICoinEcosytems[];
 }

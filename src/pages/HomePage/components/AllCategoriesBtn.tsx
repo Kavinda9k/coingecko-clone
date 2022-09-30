@@ -45,8 +45,9 @@ const AllCategoriesBtn = ({ coinEcosystems }: IProps) => {
           tabIndex={0}
           onBlur={() => setIsSelected(false)}
         >
-          {allcategories?.map((ecosystem) => (
-            <li className="allCategories__nameContainer">{ecosystem.name}</li>
+          {allcategories?.map((ecosystem, index) => (
+            // Make sure you include a key on the topmost element whenever you do a mapping like this, so that React knows how to render everything more efficiently 
+            <li key={index} className="allCategories__nameContainer">{ecosystem.name}</li>
           ))}
         </ul>
       </div>
